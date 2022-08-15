@@ -417,7 +417,7 @@
         {% for repo in site.github.public_repositories %}
         <li>
           
-        {% if "cv" in repo.topics %}
+        {% if  repo.topics contains "cv" %}
         <div class="col-lg-4 col-md-6 portfolio-item filter-ml">
           <div class="portfolio-wrap">
             <img src="assets/img/portfolio/ml-4.jpg" class="img-fluid" alt="">
