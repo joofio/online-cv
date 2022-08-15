@@ -13,18 +13,7 @@ relative_links:
 
 permalink: /:collection/:year-:month-:day-:title:output_ext
 show_excerpts: true
-defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
+
 github_username: joofio
 scholar:
   style: modern-language-association
@@ -40,3 +29,17 @@ baseurl: ""
 url: "https://joaofcalmeida.pt"
 
 include: [CNAME]
+
+##minimal-mistakes
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: false
+      share: false
+      related: true
