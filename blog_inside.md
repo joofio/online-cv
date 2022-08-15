@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Projects
-permalink: /pages/
+permalink: /blog_inside/
 ---
 
 {% for repo in site.github.public_repositories %}
