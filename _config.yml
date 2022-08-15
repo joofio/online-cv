@@ -11,3 +11,5 @@ permalink: /:collection/:year-:month-:day-:title:output_ext
 show_excerpts: true
 title: null
 name: ""
+github_username: joofio
+
