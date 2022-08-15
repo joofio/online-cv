@@ -21,3 +21,5 @@ title: null
 name: ""
 baseurl: ""
 url: "https://joaofcalmeida.pt"
+
+include: [CNAME]
