@@ -399,13 +399,35 @@
           <h2>Projects & Publications</h2>
           <p>An overview of a selection of the projects & publications that I have developed over the years. </p>
         </div>
-        <div>
-        {% for repo in site.github.public_repositories %}
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-ml">Machine Learning</li>
+              <li data-filter=".filter-interop">Interoperability</li>
+              <li data-filter=".filter-academic">Academic</li>
+            </ul>
+          </div>
+        </div>
 
-        {% if repo.fork == false and repo.topics.size > 0 %}
-        
-        <h2> {{ repo.name }}</h2>
-        <h2> {{ repo.html_url }}</h2>
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+
+
+        {% for repo in site.github.public_repositories %}
+        <li>
+          
+        {% if "cv" in repo.topics %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-ml">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/ml-4.jpg" class="img-fluid" alt="">
+            <div class="portfolio-links">
+              <a href="assets/img/portfolio/ml-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title={{ repo.name }}><i class="bx bx-plus"></i></a>
+              <a href={{ repo.html_url }} title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+        </div>
+
         <h3>  {{repo.description}}</h3>
         <h4> Topics: {{ repo.topics | array_to_sentence_string}}</h4>
         
@@ -413,7 +435,7 @@
         
         {% endif %}
         
-        {% endfor %}</div>
+        {% endfor %}
     </section><!-- End Portfolio Section -->
 
     <!-- ======= Services Section ======= -->
