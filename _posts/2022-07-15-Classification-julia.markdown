@@ -1,12 +1,9 @@
 ---
 layout: post
-title:  "Classification with Julia!"
-date:   2022-07-15 12:00:00 +0000
-categories: jekyll update
+title:  "Introduction to Machine Learning with Julia"
+date:   2020-10-15 12:00:00 +0000
+categories: machine-learning julia
 ---
-
-
-# Introduction to Machine Learning with Julia
 
 The Julia language was originally released in 2012 by Alan Edelman, Stefan Karpinski, Jeff Bezanson, and Viral Shah. Its popularity has been increasing exponentially in the last few years and its speed and community have been key.
 Furthermore, and taking the words of Ben Lauwens in its book [Think Julia](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html) the reasons for picking up Julia are:
