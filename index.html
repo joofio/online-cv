@@ -418,18 +418,15 @@
         {% if  repo.topics contains "machine-learning" %}
         {% assign construct_count = construct_count | plus: " filter-ml " %}
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-ml">
           {% elsif  repo.topics contains "academic" %}
           {% assign construct_count = construct_count | plus: " filter-academic " %}
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-academic">
             {% elsif  repo.topics contains "interoperability" %}
             {% assign construct_count = construct_count | plus: " filter-interop " %}
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-interop">
-              {% else %}
-              <div class="col-lg-4 col-md-6 portfolio-item {{construct_count}}">
+
               {% endif %}
+              <div class="col-lg-4 col-md-6 portfolio-item {{construct_count}}">
 
             <p><a href={{ repo.html_url }}><b>Title:</b> {{repo.name}}</a> </p> 
             <p><b>Description:</b> {{repo.description}}</p>
