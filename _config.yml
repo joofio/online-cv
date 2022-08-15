@@ -6,8 +6,8 @@ plugins:
 relative_links:
   enabled: true
   collections: true
-include:
-  - pages/intro.md
+
 permalink: /:collection/:year-:month-:day-:title:output_ext
 show_excerpts: true
 title: null
+name: ""
