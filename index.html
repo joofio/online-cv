@@ -433,10 +433,10 @@
 
               {% endif %}
           <div class="portfolio-wrap">
-            <p> {{repo.name}}</p> 
-            <p>{{repo.description}}</p>
+            <p><a href={{ repo.html_url }}><b>Title:</b>{{repo.name}}</a> </p> 
+            <p><b>Description:</b> {{repo.description}}</p>
             <p><b>Topics:</b> {{ repo.topics | array_to_sentence_string}}</p> 
-            <p> <b>Last Updated:</b>  {{repo.updated_at | date_to_string}}  <a href={{ repo.html_url }}><i class="bx bx-link"></i></a> </p>
+            <p> <b>Last Updated:</b>  {{repo.updated_at | date_to_string}} </p>
 
           </div>
         </div>
