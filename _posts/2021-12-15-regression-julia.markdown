@@ -31,20 +31,20 @@ Then we should inspect the dataset in order to check if everything went as expec
 For today, we are going to try to predict the variable **time**. This variable is the time to the event, which can be death or not. So time is the amount of time needed until that event, whether death or follow-up period.
 So we need to evaluate more in detail the target variable with some visualizations.
 
-![glimpse of the dataset](/images/julia-2/julia-2-0.png)
+![glimpse of the dataset](/assets/img/julia-2/julia-2-0.png)
 
 Time to event has a median of +- 110 and interquartile of 125. Now for a frequency plot.
 
-![glimpse of the dataset](/images/julia-2/julia-2-1.png)
+![glimpse of the dataset](/assets/img/julia-2/julia-2-1.png)
 
 We have at least two peaks of time frequency around 90 and 210.
 
-![glimpse of the dataset](/images/julia-2/julia-2-2.png)
+![glimpse of the dataset](/assets/img/julia-2/julia-2-2.png)
 
 
 For a further inspection, we ploted age vs time. There is a negative correlation between them (even if low), as would be expected. Now for event vs time.
 
-![glimpse of the dataset](/images/julia-2/julia-2-3.png)
+![glimpse of the dataset](/assets/img/julia-2/julia-2-3.png)
 
 As expected, Event is a major differentiator for the value of time. So it will be natural that the variable event has a lot of impact into our model. Now to prepare the data for applying the models, we will coerce into specific scitypes for better handling by the models. More information on scitypes [here](https://docs.juliahub.com/MLJScientificTypes/XeLZr/0.2.9/).
 
@@ -71,7 +71,7 @@ For the results, we need to collect all the [Root Mean Squared Error](https://en
 
 {% gist ffe75f8b150f49d92cbcc8488124dc49 %}
 
-![glimpse of the dataset](/images/julia-2/julia-2-4.png)
+![glimpse of the dataset](/assets/img/julia-2/julia-2-4.png)
 
 The Linear regression, Random Forest and GradientBoost seems to perform a little better than the other 2. However, since linear regression has a better explainability, we are going with it as the final model.
 
@@ -89,12 +89,12 @@ As we understood earlier, the **DEATH_EVENT** variable has a major impact in the
 ## Evaluating Final Model
 The model was fitted to the data and evaluated on the test set, we know how good it performed but we can investigate this more deeply. It should assess the errors for each row in the test set, in order to inspect them more thoroughly.
 
-![glimpse of the dataset](/images/julia-2/julia-2-5.png)
+![glimpse of the dataset](/assets/img/julia-2/julia-2-5.png)
 
 
 The errors seem random and do not follow any type of pattern, which is good.
 
-![glimpse of the dataset](/images/julia-2/julia-2-6.png)
+![glimpse of the dataset](/assets/img/julia-2/julia-2-6.png)
 
 Test error seems to follow a normal distribution, which is desirable.
 

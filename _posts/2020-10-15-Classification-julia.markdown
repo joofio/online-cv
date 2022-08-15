@@ -43,7 +43,7 @@ data = CSV.read("dataR2.csv");
 first(data, 4)
 ```
 
-![glimpse of the dataset](/images/julia-1/julia-0.png)
+![glimpse of the dataset](/assets/img/julia-1/julia-0.png)
 
 Our purpose for today is to create models that can predict the Classification variable. Which is the classification of the patient.
 * 1 is for healthy controls
@@ -55,14 +55,14 @@ So we will check how the variable is distributed in the dataset to see if it is 
 ```julia
 by(data,:Classification,nrow)
 ```
-![target distribution](/images/julia-1/julia-1-1.png)
+![target distribution](/assets/img/julia-1/julia-1-1.png)
 
 Fairly balanced, so lets look at some descriptive statistics of the whole dataset.
 ```julia
 describe(data)
 ```
 
-![data description](/images/julia-1/julia-1-2.png)
+![data description](/assets/img/julia-1/julia-1-2.png)
 
 No missings and all numeric data. Thats cool!
 For MLJ package, scitypes are core. So we will coerce them to continuous and OrderedFactor to apply the most known models down the line.
@@ -85,21 +85,21 @@ end
 display(p)
 ```
 
-![boxplot1](/images/julia-1/julia-1-3.png)
+![boxplot1](/assets/img/julia-1/julia-1-3.png)
 
-![data description](/images/julia-1/julia-1-4.png)
+![data description](/assets/img/julia-1/julia-1-4.png)
 
 ```julia
 @df data corrplot(cols(1:4))
 ```
 
-![data description](/images/julia-1/julia-1-5.png)
+![data description](/assets/img/julia-1/julia-1-5.png)
 
 ```julia
 @df data corrplot(cols(5:8))
 ```
 
-![data description](/images/julia-1/julia-1-6.png)
+![data description](/assets/img/julia-1/julia-1-6.png)
 
 ```julia
 p=boxplot(layout=9,size=(1200,600))
@@ -108,7 +108,7 @@ for i in 1:9
 end
 display(p)
 ```
-![data description](/images/julia-1/julia-1-7.png)
+![data description](/assets/img/julia-1/julia-1-7.png)
 
 We can check with the graphs above that it really seems to be a difference in the classifiers regarding the target variable Classification. We can now make our models.
 
@@ -211,14 +211,14 @@ results= [eval_lda.measurement[1], eval_knn.measurement[1],eval_svm.measurement[
 errors=[std(eval_lda.per_fold[1]),std(eval_knn.per_fold[1]),std(eval_svm.per_fold[1]),std(eval_rf.per_fold[1]),std(eval_tree.per_fold[1])]
 scatter(["lda", "knn", "svm", "rf", "tree"],results,yerror=errors,ylims=[0,1],label="accuracy")
 ```
-![data accuracy](/images/julia-1/julia-1-8.png)
+![data accuracy](/assets/img/julia-1/julia-1-8.png)
 
 We can also check the accuracy of the test set.
 
 ```julia
 scatter(Array(string.(keys(test_results))),Array(float.(values(test_results))),ylims=[0,1],label="accuracy")
 ```
-![data accuracy](/images/julia-1/julia-1-9.png)
+![data accuracy](/assets/img/julia-1/julia-1-9.png)
 
 
 The best model for the test set seemed to be the decision tree. We can inspect the model further with these functions.
