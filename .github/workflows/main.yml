@@ -20,11 +20,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gems-
 
-
-
-    # Specify the Jekyll source location as a parameter
+#standard
     - uses: helaili/jekyll-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        jekyll_src: 'online-cv'
-        target_branch: 'gh-pages'
