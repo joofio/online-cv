@@ -432,13 +432,10 @@
               <div class="col-lg-4 col-md-6 portfolio-item ">
 
               {% endif %}
-          <div class="portfolio-wrap">
-            <p><a href={{ repo.html_url }}><b>Title:</b>{{repo.name}}</a> </p> 
+            <p><a href={{ repo.html_url }}><b>Title:</b> {{repo.name}}</a> </p> 
             <p><b>Description:</b> {{repo.description}}</p>
             <p><b>Topics:</b> {{ repo.topics | array_to_sentence_string}}</p> 
             <p> <b>Last Updated:</b>  {{repo.updated_at | date_to_string}} </p>
-
-          </div>
         </div>
 
         {% endif %}
