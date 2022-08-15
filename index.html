@@ -417,15 +417,30 @@
           
         {% if  repo.topics contains "cv" %}
 
+        {% if  repo.topics contains "machine-learning" %}
 
         <div class="col-lg-4 col-md-6 portfolio-item filter-ml">
+
+          {% elsif  repo.topics contains "academic" %}
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-academic">
+
+            {% elsif  repo.topics contains "interoperability" %}
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-interop">
+              {% else %}
+              <div class="col-lg-4 col-md-6 portfolio-item ">
+
+              {% endif %}
           <div class="portfolio-wrap">
-            <p> {{repo.name}} ||  {{repo.description}} || Topics: {{ repo.topics | array_to_sentence_string}} || Last Updated:     {{repo.updated_at | date_to_string}}        <a href={{ repo.html_url }} title="More Details"><i class="bx bx-link"></i></a>            </p>
+            <p> {{repo.name}}</p> 
+            <p>{{repo.description}}</p>
+            <p><b>Topics:</b> {{ repo.topics | array_to_sentence_string}}</p> 
+            <p> <b>Last Updated:</b>  {{repo.updated_at | date_to_string}}  <a href={{ repo.html_url }}><i class="bx bx-link"></i></a> </p>
 
           </div>
         </div>
 
-        
         {% endif %}
         
         {% endfor %}
