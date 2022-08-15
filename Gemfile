@@ -5,13 +5,15 @@ source "https://rubygems.org"
 #
 #     bundle exec jekyll serve
 #
-gem "minima", "~> 2.5.1"
+# gem "minima", "~> 2.5.1"
+gem "minimal-mistakes-jekyll"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "github-pages"
   gem 'jekyll-feed'
   gem 'jekyll-scholar'
+  gem "jekyll-include-cache"
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem

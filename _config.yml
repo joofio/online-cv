@@ -1,11 +1,12 @@
 # Build settings
-theme: minima
+theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
   - jekyll-relative-links
   - jekyll/scholar
   - jeyll-seo-tag
-
+  - jekyll-include-cache
+  
 relative_links:
   enabled: true
   collections: true
