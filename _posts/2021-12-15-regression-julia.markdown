@@ -3,7 +3,6 @@ layout: post
 title:  "Regression Tutorial with Julia lang"
 date:   2021-12-15 12:00:00 +0000
 categories: machine-learning julia regression
-classes: wide
 
 ---
 

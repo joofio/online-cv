@@ -6,14 +6,25 @@ plugins:
   - jekyll/scholar
   - jeyll-seo-tag
   - jekyll-include-cache
-  
+
 relative_links:
   enabled: true
   collections: true
 
 permalink: /:collection/:year-:month-:day-:title:output_ext
 show_excerpts: true
-
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
 github_username: joofio
 scholar:
   style: modern-language-association

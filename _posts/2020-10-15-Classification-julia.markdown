@@ -3,7 +3,6 @@ layout: post
 title:  "Introduction to Machine Learning with Julia"
 date:   2020-10-15 12:00:00 +0000
 categories: machine-learning julia
-classes: wide
 
 ---
 
