@@ -404,13 +404,12 @@
 
         {% if repo.fork == false and repo.topics.size > 0 %}
         
-        ## [{{ repo.name }}]({{ repo.html_url }})
+        <h2> {{ repo.name }}</h2>
+        <h2> {{ repo.html_url }}</h2>
+        <h3>  {{repo.description}}</h3>
+        <h4> Topics: {{ repo.topics | array_to_sentence_string}}</h4>
         
-        {{repo.description}}
-        
-        Topics: {{ repo.topics | array_to_sentence_string}}
-        
-        Last updated: {{repo.updated_at | date_to_string}}
+        <h4>Last updated: {{repo.updated_at | date_to_string}}</h4>
         
         {% endif %}
         
