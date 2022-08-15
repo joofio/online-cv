@@ -82,6 +82,7 @@
     </div>
   </header><!-- End Header -->
 
+  <main id="main">
 
   {% if site.posts.size > 0 %}
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
@@ -112,7 +113,7 @@
     <p class="rss-subscribe">subscribe <a href="{{ '/feed.xml' | relative_url }}">via RSS</a></p>
   {% endif %}
 
-
+</main>
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
