@@ -417,14 +417,14 @@
 
         {% if  repo.topics contains "machine-learning" %}
         {% assign construct_count = construct_count | append: " filter-ml " %}
+        {% endif %}
 
-          {% elsif  repo.topics contains "academic" %}
+          {% if  repo.topics contains "academic" %}
           {% assign construct_count = construct_count | append: " filter-academic " %}
+          {% endif %}
 
-            {% elsif  repo.topics contains "interoperability" %}
+            {% if  repo.topics contains "interoperability" %}
             {% assign construct_count = construct_count | append: " filter-interop " %}
-
-
               {% endif %}
               <div class="col-lg-4 col-md-6 portfolio-item {{construct_count}}">
 
