@@ -11,10 +11,13 @@ relative_links:
 
 permalink: /:collection/:year-:month-:day-:title:output_ext
 show_excerpts: true
-title: null
-name: ""
+
 github_username: joofio
 scholar:
   style: modern-language-association
 repository: joofio/online-cv
 author: João Almeida
+title: null
+name: ""
+baseurl: ""
+url: "https://joaofcalmeida.pt"
