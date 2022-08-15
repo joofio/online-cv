@@ -3,7 +3,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-relative-links
-  - ['jekyll/scholar']
+  - jekyll/scholar
 
 relative_links:
   enabled: true
