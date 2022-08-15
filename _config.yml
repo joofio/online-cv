@@ -4,6 +4,7 @@ plugins:
   - jekyll-feed
   - jekyll-relative-links
   - jekyll/scholar
+  - jeyll-seo-tag
 
 relative_links:
   enabled: true
