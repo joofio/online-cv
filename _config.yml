@@ -3,6 +3,8 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-relative-links
+  - ['jekyll/scholar']
+
 relative_links:
   enabled: true
   collections: true
@@ -12,4 +14,5 @@ show_excerpts: true
 title: null
 name: ""
 github_username: joofio
-
+scholar:
+  style: modern-language-association
