@@ -3,6 +3,8 @@ layout: post
 title:  "Introduction to Machine Learning with Julia"
 date:   2020-10-15 12:00:00 +0000
 categories: machine-learning julia
+classes: wide
+
 ---
 
 The Julia language was originally released in 2012 by Alan Edelman, Stefan Karpinski, Jeff Bezanson, and Viral Shah. Its popularity has been increasing exponentially in the last few years and its speed and community have been key.

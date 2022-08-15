@@ -424,8 +424,8 @@
               {% endif %}
             <p><a href={{ repo.html_url }}><b>Title:</b> {{repo.name}}</a> </p> 
             <p><b>Description:</b> {{repo.description}}</p>
-            <p><b>Topics:</b> {{ repo.topics | array_to_sentence_string}}</p> 
-            <p> <b>Last Updated:</b>  {{repo.updated_at | date_to_string}} </p>
+            <p><b><i class='bx bxs-tag-alt' ></i>Topics:</b> {{ repo.topics | array_to_sentence_string}}</p> 
+            <p> <i class='bx bxs-calendar'></i><b>Last Updated:</b>  {{repo.updated_at | date_to_string}} </p>
         </div>
         {% endif %}
         {% endfor %}
