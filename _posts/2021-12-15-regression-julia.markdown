@@ -6,7 +6,7 @@ categories: machine-learning julia regression
 ---
 
 
-Hi, in my last [post](/posts/2022-07-15-Classification-julia.html), I showed how Julia can be used to perform a classification task. In that case, we classified patients into two categories, so it was a classification, which is a method for predicting a, you guessed it, categorical outcome. But now, we are going to do a regression, where the outcome variable is continuous.
+Hi, in my last [post](/posts/2020-10-15-Classification-julia.html), I showed how Julia can be used to perform a classification task. In that case, we classified patients into two categories, so it was a classification, which is a method for predicting a, you guessed it, categorical outcome. But now, we are going to do a regression, where the outcome variable is continuous.
 
 That said, let’s try to create a model that can predict a time to event. Even though this could be handled differently, for this purpose, we are going to treat this outcome prediction as a simple continuous variable.
 
