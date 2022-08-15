@@ -15,6 +15,10 @@ show_excerpts: true
 github_username: joofio
 scholar:
   style: modern-language-association
+  order: descending
+  sort_by: year,month
+ # bibliography_template: bib
+
 repository: joofio/online-cv
 author: João Almeida
 title: null
