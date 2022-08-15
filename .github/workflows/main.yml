@@ -1,7 +1,10 @@
 name: Testing the GitHub Pages publication
 
 on:
-  push
+  push:
+    branches:
+      - main
+      - master
 
 jobs:
   jekyll:
