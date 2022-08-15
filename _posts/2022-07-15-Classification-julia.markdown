@@ -7,7 +7,6 @@ categories: jekyll update
 
 
 # Introduction to Machine Learning with Julia
->(this post was collected from my medium profile)
 
 The Julia language was originally released in 2012 by Alan Edelman, Stefan Karpinski, Jeff Bezanson, and Viral Shah. Its popularity has been increasing exponentially in the last few years and its speed and community have been key.
 Furthermore, and taking the words of Ben Lauwens in its book [Think Julia](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html) the reasons for picking up Julia are:
@@ -241,3 +240,4 @@ We did not tune any of the models nor used any kind of hyperparameter modificati
 If you want to know more about Julia, check their website or their github.
 
 Happy coding! 🚀
+>(this post was collected from my medium profile)
