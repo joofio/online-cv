@@ -412,26 +412,19 @@
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
 
-
-
         {% for repo in site.github.public_repositories %}
-        <li>
+
           
         {% if  repo.topics contains "cv" %}
+
+
         <div class="col-lg-4 col-md-6 portfolio-item filter-ml">
           <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/ml-4.jpg" class="img-fluid" alt="">
-            <div class="portfolio-links">
-              <a href="assets/img/portfolio/ml-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title={{ repo.name }}><i class="bx bx-plus"></i></a>
-              <a href={{ repo.html_url }} title="More Details"><i class="bx bx-link"></i></a>
-            </div>
+            <p> {{repo.name}} ||  {{repo.description}} || Topics: {{ repo.topics | array_to_sentence_string}} || Last Updated:     {{repo.updated_at | date_to_string}}        <a href={{ repo.html_url }} title="More Details"><i class="bx bx-link"></i></a>            </p>
+
           </div>
         </div>
 
-        <h3>  {{repo.description}}</h3>
-        <h4> Topics: {{ repo.topics | array_to_sentence_string}}</h4>
-        
-        <h4>Last updated: {{repo.updated_at | date_to_string}}</h4>
         
         {% endif %}
         
