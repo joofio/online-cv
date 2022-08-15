@@ -416,13 +416,13 @@
         {%- assign construct_count = "" -%}
 
         {% if  repo.topics contains "machine-learning" %}
-        {% assign construct_count = construct_count | plus: " filter-ml " %}
+        {% assign construct_count = construct_count | append: " filter-ml " %}
 
           {% elsif  repo.topics contains "academic" %}
-          {% assign construct_count = construct_count | plus: " filter-academic " %}
+          {% assign construct_count = construct_count | append: " filter-academic " %}
 
             {% elsif  repo.topics contains "interoperability" %}
-            {% assign construct_count = construct_count | plus: " filter-interop " %}
+            {% assign construct_count = construct_count | append: " filter-interop " %}
 
 
               {% endif %}
