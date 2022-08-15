@@ -16,7 +16,7 @@ gem "github-pages", "~> 214", group: :jekyll_plugins
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-feed", "~> 0.16.0"
   gem 'jekyll-scholar', '~> 7.1.0'
 end
 
