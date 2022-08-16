@@ -2,8 +2,8 @@
   "about": "IT Pharmacist with over 8 years of experience in health information technology. Expertise in data analysis, data modelling and data exchange. Interoperability expert with several implementations and different standards. Focused on improving healthcare using data-based decisions.",
   "about_header": "Data Management &amp; Science. ",
   "about_headline": "Creating Data solutions for healthcare. ",
-  "about_description": "Healthcare needs to be safer and more efficient. With a combined background of pharmaceutical Sciences and Health Informatics, my ambition is to use technology to improve patient safety, to increase treatment efficacy and to improve care efficiency.",
-  "facts_description": "During my professional and academic activities, I take pride on some numbers that I have achieved",
+  "about_description": "Healthcare needs to be safer and more efficient. With a combined background in pharmaceutical Sciences and Health Informatics, my ambition is to use technology to improve patient safety, to increase treatment efficacy and to improve care efficiency.",
+  "facts_description": "During my professional and academic activities, I take pride in some numbers that I have achieved",
   "skills": [
     {
       "name": "Machine Learning",
@@ -43,7 +43,7 @@
       "name": "Master in Health Informatics",
       "institution": "Faculty of Medicine of University of Porto, Portugal",
       "date": "2017 - 2019",
-      "tag": "Focus on pharmacovigillance, medical system evaluation and statistics"
+      "tag": "Focus on pharmacovigilance, medical system evaluation and statistics"
     },
     {
       "name": "Specialization in Health Informatics",
@@ -55,7 +55,7 @@
       "name": "Msc in Pharmaceutical Sciences",
       "institution": "Faculty of Pharmacy of University of Porto, Portugal",
       "date": "2008 - 2013",
-      "tag": "Degree in order to practice pharmacy in community and hospital settings"
+      "tag": "Degree to practice pharmacy in community and hospital setting"
     }
   ],
   "associative": [
