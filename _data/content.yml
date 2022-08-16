@@ -5,27 +5,22 @@ about_description: Healthcare needs to be safer and more efficient. With a combi
 
 facts_description: During my professional and academic activities, I take pride on some numbers that I have achieved
 
-- skills:
-    - name: Machine Learning
-    - perc: 85%
+skills:
+  name: Machine Learning
+  perc: 85%
 
-- skills:
-    - name:
-    - perc: 
+skills:
+  name: Machine Learning
+  perc: 85%
 
-- skills:
-    - name:
-    - perc: 
+skills:
+  name: Machine Learning
+  perc: 85%
 
-- skills:
-    - name:
-    - perc: 
+skills:
+  name: Machine Learning
+  perc: 85%
 
-- skills:
-    - name:
-    - perc: 
 
-- skills:
-    - name:
-    - perc: 
+
 resume_description: Some of my personal, academic, professional and associative history.
