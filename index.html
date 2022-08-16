@@ -50,6 +50,7 @@
   {% include header.html %}
   {{ content }}
 
+  {% for item in site.data.cv_content %}
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
@@ -67,7 +68,7 @@
 
         <div class="section-title">
           <h2>About</h2>
-          <p>IT Pharmacist with over 8 years of experience in health information technology. Expertise in data analysis, data modelling and data exchange. Interoperability expert with several implementations and different standards. Focused on improving healthcare using data-based decisions.
+          <p>{{ item.link }}
           </p>
         </div>
 
