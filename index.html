@@ -48,9 +48,7 @@
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
   {% include header.html %}
-  {{ content }}
 
-  {% for item in site.data.cv_content %}
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
@@ -68,7 +66,7 @@
 
         <div class="section-title">
           <h2>About</h2>
-          <p>{{ item.link }}
+          <p>{{ site.data.cv_content[about]}}
           </p>
         </div>
 
