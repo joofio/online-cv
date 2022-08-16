@@ -58,7 +58,7 @@
       "tag": "Degree in order to practice pharmacy in community and hospital settings"
     }
   ],
-  "associate": [
+  "associative": [
     {
       "name": "HL7 Chapter Portugal",
       "date": "2018 - today",
@@ -84,6 +84,56 @@
         "Co-authorship of IHE Pharmacy FHIR Profiles on prescription, dispense and drug adverse events",
         "Creating FHIR servers for medicine regulation, IDMP compatible.",
         "Creating and implementing FHIR profiles across domains."
+      ]
+    },
+    {
+      "position": "Interoperability and machine learning",
+      "date": "2018 - 2021",
+      "location": "HealthySystems, Porto",
+      "description": [
+        "Creating technical and clinical alarming mechanisms",
+        "Developing data pipelines for several machine learning algorithms",
+        "Creating, deploying and monitoring ML models in several hospitals",
+        "Creating integration mechanisms with over 15 different suppliers in 7 hospitals"
+      ]
+    },
+    {
+      "position": "Invited Lecturer",
+      "date": "2019 - Present",
+      "location": "Faculty of Medicine Of University Porto, Porto",
+      "description": [
+        "Lecturing classes about interoperability, data standards, Health information systems and health data science",
+        "Creating infrastructure for practical classes support"      ]
+    },
+ 
+    {
+      "position": "Researcher",
+      "date": "2016 - Present",
+      "location": "NanoSTIMA, Porto",
+      "description": [
+        "Researching superior tools to support causality assessment in the pharmacovigilance centres. Provide faster, better and more efficiently drug information to the population.",
+        "Currently developing evaluation methods for biomedical systems and natural language processing of biomedical papers."      ]
+    },
+    {
+      "position": "Integration Analyst",
+      "date": "2016 - 2018",
+      "location": "Alert Life Sciences Computing, Porto",
+      "description": [
+        "Aimed to provide the best medication information for the software in 13 countries. Integrated different information sources into the product, along with communicating with clients, governmental institutions and information providers.",
+        "Integration of several data sources into the application",
+        "Creating ETL processes for incremental updates of information, focusing on data quality and patient safety",
+        "Implementation of automatic mechanisms for client support "
+      ]
+    },
+    {
+      "position": "Data Analyst",
+      "date": "2014 - 2016",
+      "location": "Alert Life Sciences Computing, Porto",
+      "description": [
+        "Data and business analysis for hospitals over 13 countries. Great involvement with features development, helping both functional analysis and development teams.",
+        "Quality control of content produced for 1+ years",
+        "Functional analysis for several features for 3+ years",
+        "Implementation consultant in over 5 projects"
       ]
     }
   ]
