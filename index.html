@@ -67,6 +67,11 @@
         <div class="section-title">
           <h2>About</h2>
           <p>{{ site.data.cv_content.about }}</p>
+          <p>{{ site.data.cv_content[about] }}</p>
+          {% assign about = site.data.cv_content[about] %}
+          <p>{{ about }}</p>
+
+
         </div>
 
         <div class="row">
