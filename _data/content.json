@@ -10,17 +10,81 @@
       "perc": 85
     },
     {
-      "name": "Machine Learning",
+      "name": "Data Management ",
+      "perc": 90
+    },
+    {
+      "name": "Interoperability",
+      "perc": 100
+    },
+    {
+      "name": "Python",
+      "perc": 80
+    },
+    {
+      "name": "DevOps",
       "perc": 85
     },
     {
-      "name": "Machine Learning",
-      "perc": 85
-    },
-    {
-      "name": "Machine Learning",
-      "perc": 85
+      "name": "HL7 FHIR",
+      "perc": 95
     }
   ],
-  "resume_description": "Some of my personal, academic, professional and associative history."
+  "resume_description": "Some of my personal, academic, professional and associative history.",
+  "resume_summary": "IT Pharmacist with over 8 years of experience in health information technology. Expertise in data analysis, data modelling and data exchange. Interoperability expert with several implementations and different standards. Focused on improving healthcare using data-based decisions.",
+  "education": [
+    {
+      "name": "PhD in Health Data Science",
+      "institution": "Faculty of Medicine of University of Porto, Portugal",
+      "date": "2019 - Now",
+      "tag": "Specialization in Federated Learning, Data modelling, Generative networks and real word evidence"
+    },
+    {
+      "name": "Master in Health Informatics",
+      "institution": "Faculty of Medicine of University of Porto, Portugal",
+      "date": "2017 - 2019",
+      "tag": "Focus on pharmacovigillance, medical system evaluation and statistics"
+    },
+    {
+      "name": "Specialization in Health Informatics",
+      "institution": "Faculty of Medicine of University of Porto, Portugal",
+      "date": "2016 - 2016",
+      "tag": "Focus on data modelling and interoperability"
+    },
+    {
+      "name": "Msc in Pharmaceutical Sciences",
+      "institution": "Faculty of Pharmacy of University of Porto, Portugal",
+      "date": "2008 - 2013",
+      "tag": "Degree in order to practice pharmacy in community and hospital settings"
+    }
+  ],
+  "associate": [
+    {
+      "name": "HL7 Chapter Portugal",
+      "date": "2018 - today",
+      "tag": "Portuguese chapter of the HL7 foundation. Helped to teach and advise the Portuguese interoperability community on best practices regarding HL7 implementation. "
+    },
+    {
+      "name": "E-mais",
+      "date": "2017 - today",
+      "tag": "One of the Portuguese representatives in the EFMI (European Federation for Medical Informatics). Created initiatives to promote digital health adoption in Portugal."
+    },
+    {
+      "name": "IHE Pharmacy",
+      "date": "2017 - today",
+      "tag": "Focused on creating profiles to help the community implement correct and useful practices regarding information exchange in the pharmacy setting. "
+    }
+  ],
+  "professional": [
+    {
+      "position": "Independent Consultant",
+      "date": "2021 - Present",
+      "location": "Worldwide",
+      "description": [
+        "Co-authorship of IHE Pharmacy FHIR Profiles on prescription, dispense and drug adverse events",
+        "Creating FHIR servers for medicine regulation, IDMP compatible.",
+        "Creating and implementing FHIR profiles across domains."
+      ]
+    }
+  ]
 }
