@@ -8,7 +8,7 @@ toc: true
 
 Hi, in my last [post](/posts/2020-10-15-Classification-julia.html), I showed how Julia can be used to perform a classification task. In that case, we classified patients into two categories, so it was a classification, which is a method for predicting a, you guessed it, categorical outcome. But now, we are going to do a regression, where the outcome variable is continuous.
 
-That said, let’s try to create a model that can predict a time to event. Even though this could be handled differently, for this purpose, we are going to treat this outcome prediction as a simple continuous variable.
+That said, let’s try to create a model that can predict the time to an event. Even though this could be handled differently, for this purpose, we are going to treat this outcome prediction as a simple continuous variable.
 
 The dataset is available [here](https://archive.ics.uci.edu/ml/machine-learning-databases/00519/heart_failure_clinical_records_dataset.csv). For this tutorial, we are going to need a few packages. For using them, check the code below.
 
@@ -29,31 +29,31 @@ Then we should inspect the dataset in order to check if everything went as expec
 {% gist 7a308fca326bbeded0cd322d0932c3c4 %}
 
 For today, we are going to try to predict the variable **time**. This variable is the time to the event, which can be death or not. So time is the amount of time needed until that event, whether death or follow-up period.
-So we need to evaluate more in detail the target variable with some visualizations.
+So we need to evaluate in detail the target variable with some visualizations.
 
 ![glimpse of the dataset](/assets/img/julia-2/julia-2-0.png)
 
-Time to event has a median of +- 110 and interquartile of 125. Now for a frequency plot.
+Time to the event has a median of +- 110 and an interquartile of 125. Now for a frequency plot.
 
 ![glimpse of the dataset](/assets/img/julia-2/julia-2-1.png)
 
-We have at least two peaks of time frequency around 90 and 210.
+We have at least two peaks of time-frequency around 90 and 210.
 
 ![glimpse of the dataset](/assets/img/julia-2/julia-2-2.png)
 
 
-For a further inspection, we ploted age vs time. There is a negative correlation between them (even if low), as would be expected. Now for event vs time.
+For a further inspection, we plotted age vs time. There is a negative correlation between them (even if low), as would be expected. Now for the event vs time.
 
 ![glimpse of the dataset](/assets/img/julia-2/julia-2-3.png)
 
-As expected, Event is a major differentiator for the value of time. So it will be natural that the variable event has a lot of impact into our model. Now to prepare the data for applying the models, we will coerce into specific scitypes for better handling by the models. More information on scitypes [here](https://docs.juliahub.com/MLJScientificTypes/XeLZr/0.2.9/).
+As expected, Event is a major differentiator for the value of time. So it will be natural that the variable event has a lot of impact on our model. Now to prepare the data for applying the models, we will coerce into specific scitypes for better handling by the models. More information on scitypes [here](https://docs.juliahub.com/MLJScientificTypes/XeLZr/0.2.9/).
 
 ```julia
 coerce!(dataset, Count=>MLJ.Continuous);
 ```
 
 ## Creating Models
-Preparing data is important for starting the model creation, so we will divide data in target (y) and remaining features (X).
+Preparing data is important for starting the model creation, so we will divide data into target (y) and remaining features (X).
 
 {% gist 0f5688a0d23eec602e47408daf32b486 %}
 
@@ -61,8 +61,8 @@ For this, we are going to evaluate the models in the training dataset with repea
 1. Load model.
 2. Create the machine (which is a similar action to class instantiation)
 3. Training with 3x 10-fold cross-validation and return the evaluation metric.
-4. Store the metrics into a dictionary for further usage.
-So, we are going to use a linear model, decision tree, k-nearest neighbours, random forest and gradientboost (this could be done with a loop but oh well 😃). The seed is used to make the code reproducible (since RNG is used for cross-validation).
+4. Store the metrics in a dictionary for further usage.
+So, we are going to use a linear model, decision tree, k-nearest neighbours, random forest and gradient boost (this could be done with a loop but oh well 😃). The seed is used to make the code reproducible (since RNG is used for cross-validation).
 
 {% gist eaa74e85b6361d0f03a28b6664bfc2b3 %}
 
@@ -73,7 +73,7 @@ For the results, we need to collect all the [Root Mean Squared Error](https://en
 
 ![glimpse of the dataset](/assets/img/julia-2/julia-2-4.png)
 
-The Linear regression, Random Forest and GradientBoost seems to perform a little better than the other 2. However, since linear regression has a better explainability, we are going with it as the final model.
+The Linear regression, Random Forest and GradientBoost seem to perform a little better than the other 2. However, since linear regression has a better explainability, we are going with it as the final model.
 
 {% gist 40d16fe0c54c4a742f62696abf256022 %}
 
