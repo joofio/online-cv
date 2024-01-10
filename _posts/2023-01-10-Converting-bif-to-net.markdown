@@ -16,7 +16,7 @@ My solution was to convert the network to the Hugin net format for use in SamIam
 2. Import the bif format into bnlearn and then export it to the .net format. (code below)
 3. Open it in SamIam.
 
-```{r}
+```r
 library(bnlearn)
 
 model<-read.bif("<network>.bif",debug = TRUE)
@@ -31,7 +31,7 @@ This process should have been simple, but I encountered errors related to condit
 
 To address this, I converted them back to standard notation using the following Python script:
 
-```{python}
+```python
 import re
 
 # Read the file
@@ -62,4 +62,4 @@ print(f"The modified content has been written to {new_file_path}")
 With these adjustments, I was able to successfully read the file in SamIam with the data appearing correctly.
 
 
-![Network in SamIam](/assets/img/img/samiam-example.png)
+![Network in SamIam](/assets/img/samiam-example.png)
