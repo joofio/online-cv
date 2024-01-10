@@ -61,7 +61,5 @@ print(f"The modified content has been written to {new_file_path}")
 
 With these adjustments, I was able to successfully read the file in SamIam with the data appearing correctly.
 
-<figure>
-<img src=../assets/img/samiam-example.png  style="width:100%">
-<figcaption align = "center"><b>Network in SamIam</b></figcaption>
-</figure>
+
+![Network in SamIam](/assets/img/img/samiam-example.png)
