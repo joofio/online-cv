@@ -1,0 +1,565 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Regression Tutorial with Julia lang -</title>
+<meta name="description" content="Hi, in my last post, I showed how Julia can be used to perform a classification task. In that case, we classified patients into two categories, so it was a classification, which is a method for predicting a, you guessed it, categorical outcome. But now, we are going to do a regression, where the outcome variable is continuous.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="Regression Tutorial with Julia lang">
+<meta property="og:url" content="https://joaofcalmeida.pt/posts/2021-12-15-regression-julia.html">
+
+
+  <meta property="og:description" content="Hi, in my last post, I showed how Julia can be used to perform a classification task. In that case, we classified patients into two categories, so it was a classification, which is a method for predicting a, you guessed it, categorical outcome. But now, we are going to do a regression, where the outcome variable is continuous.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-15T12:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://joaofcalmeida.pt/posts/2021-12-15-regression-julia.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "",
+      "url": "https://joaofcalmeida.pt/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name"></h3>
+    
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Regression Tutorial with Julia lang">
+    <meta itemprop="description" content="Hi, in my last post, I showed how Julia can be used to perform a classification task. In that case, we classified patients into two categories, so it was a classification, which is a method for predicting a, you guessed it, categorical outcome. But now, we are going to do a regression, where the outcome variable is continuous.">
+    <meta itemprop="datePublished" content="2021-12-15T12:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Regression Tutorial with Julia lang
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#data-load-and-checking">Data Load and Checking</a></li><li><a href="#creating-models">Creating Models</a></li><li><a href="#assessing-results">Assessing results</a></li><li><a href="#evaluating-final-model">Evaluating Final Model</a></li><li><a href="#conclusion">Conclusion</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>Hi, in my last <a href="/posts/2020-10-15-Classification-julia.html">post</a>, I showed how Julia can be used to perform a classification task. In that case, we classified patients into two categories, so it was a classification, which is a method for predicting a, you guessed it, categorical outcome. But now, we are going to do a regression, where the outcome variable is continuous.</p>
+
+<p>That said, let’s try to create a model that can predict the time to an event. Even though this could be handled differently, for this purpose, we are going to treat this outcome prediction as a simple continuous variable.</p>
+
+<p>The dataset is available <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/00519/heart_failure_clinical_records_dataset.csv">here</a>. For this tutorial, we are going to need a few packages. For using them, check the code below.</p>
+
+<script src="https://gist.github.com/5c14478f6e513a4333e608e89eace8f1.js"> </script>
+
+<p>If you do not have the packages installed, run</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="n">Pkg</span><span class="x">;</span> <span class="n">Pkd</span><span class="o">.</span><span class="n">add</span><span class="x">(</span><span class="n">“</span><span class="o">&lt;</span><span class="n">PackageName</span><span class="o">&gt;</span><span class="s">")
+
+</span></code></pre></div></div>
+
+<h2 id="data-load-and-checking">Data Load and Checking</h2>
+<p>For loading the dataset into your environment we can do it through the link.
+Then we should inspect the dataset in order to check if everything went as expected. Then we can analyse some descriptive statistics of the dataset, like central statistics and dispersion. We can sum all of this into:</p>
+
+<script src="https://gist.github.com/7a308fca326bbeded0cd322d0932c3c4.js"> </script>
+
+<p>For today, we are going to try to predict the variable <strong>time</strong>. This variable is the time to the event, which can be death or not. So time is the amount of time needed until that event, whether death or follow-up period.
+So we need to evaluate in detail the target variable with some visualizations.</p>
+
+<p><img src="/assets/img/julia-2/julia-2-0.png" alt="glimpse of the dataset" /></p>
+
+<p>Time to the event has a median of +- 110 and an interquartile of 125. Now for a frequency plot.</p>
+
+<p><img src="/assets/img/julia-2/julia-2-1.png" alt="glimpse of the dataset" /></p>
+
+<p>We have at least two peaks of time-frequency around 90 and 210.</p>
+
+<p><img src="/assets/img/julia-2/julia-2-2.png" alt="glimpse of the dataset" /></p>
+
+<p>For a further inspection, we plotted age vs time. There is a negative correlation between them (even if low), as would be expected. Now for the event vs time.</p>
+
+<p><img src="/assets/img/julia-2/julia-2-3.png" alt="glimpse of the dataset" /></p>
+
+<p>As expected, Event is a major differentiator for the value of time. So it will be natural that the variable event has a lot of impact on our model. Now to prepare the data for applying the models, we will coerce into specific scitypes for better handling by the models. More information on scitypes <a href="https://docs.juliahub.com/MLJScientificTypes/XeLZr/0.2.9/">here</a>.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">coerce!</span><span class="x">(</span><span class="n">dataset</span><span class="x">,</span> <span class="n">Count</span><span class="o">=&gt;</span><span class="n">MLJ</span><span class="o">.</span><span class="n">Continuous</span><span class="x">);</span>
+</code></pre></div></div>
+
+<h2 id="creating-models">Creating Models</h2>
+<p>Preparing data is important for starting the model creation, so we will divide data into target (y) and remaining features (X).</p>
+
+<script src="https://gist.github.com/0f5688a0d23eec602e47408daf32b486.js"> </script>
+
+<p>For this, we are going to evaluate the models in the training dataset with repeated cross-validation in order to get a pretty good idea of the model performance on the test set. For all models we are going to:</p>
+<ol>
+  <li>Load model.</li>
+  <li>Create the machine (which is a similar action to class instantiation)</li>
+  <li>Training with 3x 10-fold cross-validation and return the evaluation metric.</li>
+  <li>Store the metrics in a dictionary for further usage.
+So, we are going to use a linear model, decision tree, k-nearest neighbours, random forest and gradient boost (this could be done with a loop but oh well 😃). The seed is used to make the code reproducible (since RNG is used for cross-validation).</li>
+</ol>
+
+<script src="https://gist.github.com/eaa74e85b6361d0f03a28b6664bfc2b3.js"> </script>
+
+<h2 id="assessing-results">Assessing results</h2>
+<p>For the results, we need to collect all the <a href="https://en.wikipedia.org/wiki/Root-mean-square_deviation">Root Mean Squared Error</a> returned by the cross-validations and evaluate the Confidence Interval (95%).</p>
+
+<script src="https://gist.github.com/ffe75f8b150f49d92cbcc8488124dc49.js"> </script>
+
+<p><img src="/assets/img/julia-2/julia-2-4.png" alt="glimpse of the dataset" /></p>
+
+<p>The Linear regression, Random Forest and GradientBoost seem to perform a little better than the other 2. However, since linear regression has a better explainability, we are going with it as the final model.</p>
+
+<script src="https://gist.github.com/40d16fe0c54c4a742f62696abf256022.js"> </script>
+
+<blockquote>
+  <p>MAE: 51.26912864372159 <br />
+RMSE: 59.80738088464344 <br />
+RMSP: 2.398347880392765 <br />
+MAPE: 0.9529914417765525</p>
+</blockquote>
+
+<blockquote>
+  <p>(coefs = [:age =&gt; -0.5600676786856139, :anaemia =&gt; -17.379451678818782, :creatinine_phosphokinase =&gt; -0.0024220637584861492, :diabetes =&gt; 5.5623104572596525, :ejection_fraction =&gt; -0.4719281676537811, :high_blood_pressure =&gt; -23.336061031579977, :platelets =&gt; -2.9328265873457684e-5, :serum_creatinine =&gt; 1.80232687559864, :serum_sodium =&gt; 0.06127126459720784, :sex =&gt; -3.8716177684193114, :smoking =&gt; -6.7752701233783705, :DEATH_EVENT =&gt; -86.69157019555797],  intercept = 226.6056333198319,)</p>
+</blockquote>
+
+<p>As we understood earlier, the <strong>DEATH_EVENT</strong> variable has a major impact in the model, with a <strong>-86</strong> coefficient.</p>
+
+<h2 id="evaluating-final-model">Evaluating Final Model</h2>
+<p>The model was fitted to the data and evaluated on the test set, we know how good it performed but we can investigate this more deeply. It should assess the errors for each row in the test set, in order to inspect them more thoroughly.</p>
+
+<p><img src="/assets/img/julia-2/julia-2-5.png" alt="glimpse of the dataset" /></p>
+
+<p>The errors seem random and do not follow any type of pattern, which is good.</p>
+
+<p><img src="/assets/img/julia-2/julia-2-6.png" alt="glimpse of the dataset" /></p>
+
+<p>Test error seems to follow a normal distribution, which is desirable.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>With these evaluations, we have a little more confidence to say that our model grasped a glimpse of the reality of the data in order to predict the time variable. Further work could be employed in tuning the parameters or creating variables to improve our models.</p>
+
+<p>I hope that this was helpful to let you take on a regression task with Julia Lang!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-12-15T12:00:00+00:00">December 15, 2021</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/posts/2020-10-15-Classification-julia.html" class="pagination--pager" title="Introduction to Machine Learning with Julia
+">Previous</a>
+    
+    
+      <a href="/posts/2022-08-16-Academic-resources.html" class="pagination--pager" title="Academic Resources
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/posts/2023-01-10-Converting-bif-to-net.html" rel="permalink">Tech Tips #0
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">I’m launching a new category dedicated to small tech tips, where I’ll document the challenges and solutions I encounter during my PhD journey, as well as in ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/posts/2022-08-16-Academic-resources.html" rel="permalink">Academic Resources
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Grad students are often confronted with a great task in order to finish their thesis. From writing our thesis, keeping up with the state-of-the-art of our ar...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/posts/2020-10-15-Classification-julia.html" rel="permalink">Introduction to Machine Learning with Julia
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">The Julia language was originally released in 2012 by Alan Edelman, Stefan Karpinski, Jeff Bezanson, and Viral Shah. Its popularity has been increasing expon...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 . Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,691 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Introduction to Machine Learning with Julia -</title>
+<meta name="description" content="The Julia language was originally released in 2012 by Alan Edelman, Stefan Karpinski, Jeff Bezanson, and Viral Shah. Its popularity has been increasing exponentially in the last few years and its speed and community have been key. Furthermore, and taking the words of Ben Lauwens in its book Think Julia the reasons for picking up Julia are: Julia is developed as a high-performance programming language.    Julia uses multiple dispatches, which allows the programmer to choose from different programming patterns adapted to the application.   Julia is a dynamically typed language that can easily be used interactively.   Julia has a nice high-level syntax that is easy to learn.   Julia is an optionally typed programming language whose (user-defined) data types make the code clearer and more robust.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="Introduction to Machine Learning with Julia">
+<meta property="og:url" content="https://joaofcalmeida.pt/posts/2020-10-15-Classification-julia.html">
+
+
+  <meta property="og:description" content="The Julia language was originally released in 2012 by Alan Edelman, Stefan Karpinski, Jeff Bezanson, and Viral Shah. Its popularity has been increasing exponentially in the last few years and its speed and community have been key. Furthermore, and taking the words of Ben Lauwens in its book Think Julia the reasons for picking up Julia are: Julia is developed as a high-performance programming language.    Julia uses multiple dispatches, which allows the programmer to choose from different programming patterns adapted to the application.   Julia is a dynamically typed language that can easily be used interactively.   Julia has a nice high-level syntax that is easy to learn.   Julia is an optionally typed programming language whose (user-defined) data types make the code clearer and more robust.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-10-15T12:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://joaofcalmeida.pt/posts/2020-10-15-Classification-julia.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "",
+      "url": "https://joaofcalmeida.pt/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name"></h3>
+    
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Introduction to Machine Learning with Julia">
+    <meta itemprop="description" content="The Julia language was originally released in 2012 by Alan Edelman, Stefan Karpinski, Jeff Bezanson, and Viral Shah. Its popularity has been increasing exponentially in the last few years and its speed and community have been key.Furthermore, and taking the words of Ben Lauwens in its book Think Julia the reasons for picking up Julia are:Julia is developed as a high-performance programming language.  Julia uses multiple dispatches, which allows the programmer to choose from different programming patterns adapted to the application.  Julia is a dynamically typed language that can easily be used interactively.  Julia has a nice high-level syntax that is easy to learn.  Julia is an optionally typed programming language whose (user-defined) data types make the code clearer and more robust.">
+    <meta itemprop="datePublished" content="2020-10-15T12:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Introduction to Machine Learning with Julia
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Contents</h4></header>
+              <ul class="toc__menu"><li><a href="#getting-started">Getting Started</a></li><li><a href="#data-import-and-visualizations">Data Import and visualizations</a></li><li><a href="#creating-models">Creating Models</a></li><li><a href="#summing-up">Summing up</a></li><li><a href="#conclusion">Conclusion</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>The Julia language was originally released in 2012 by Alan Edelman, Stefan Karpinski, Jeff Bezanson, and Viral Shah. Its popularity has been increasing exponentially in the last few years and its speed and community have been key.
+Furthermore, and taking the words of Ben Lauwens in its book <a href="https://benlauwens.github.io/ThinkJulia.jl/latest/book.html">Think Julia</a> the reasons for picking up Julia are:
+Julia is developed as a high-performance programming language.</p>
+<ul>
+  <li>Julia uses multiple dispatches, which allows the programmer to choose from different programming patterns adapted to the application.</li>
+  <li>Julia is a dynamically typed language that can easily be used interactively.</li>
+  <li>Julia has a nice high-level syntax that is easy to learn.</li>
+  <li>Julia is an optionally typed programming language whose (user-defined) data types make the code clearer and more robust.</li>
+</ul>
+
+<p>Being you an R user, Python user or even not proficient with any machine learning related language, this guide is aimed to give you a hand understanding julia and how it is applied to ML.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+<p>So first of all, the packages we are using today for the classification task is <a href="https://github.com/alan-turing-institute/MLJ.jl">MLJ package</a>.
+DataFrames and CSV are for data handling and StatsPlots for visualization.</p>
+<blockquote>
+  <p><strong><em>NOTE:</em></strong> The using term is used to import packages. <br />
+If you do not have them installed you should run using Pkg;Pkg.add(“packageName”).</p>
+</blockquote>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="n">MLJ</span>
+<span class="k">using</span> <span class="n">CSV</span>
+<span class="k">using</span> <span class="n">DataFrames</span>
+<span class="k">using</span> <span class="n">StatsPlots</span>
+<span class="k">using</span> <span class="n">Random</span>
+</code></pre></div></div>
+
+<p>Now we need to load the data we are testing, we will be using the data from <a href="https://archive.ics.uci.edu/ml/datasets.php">UCI repository</a>, namely the <a href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Coimbra">Breast Cancer Coimbra Data Set</a>.
+We will import and make an initial analysis of the data present, by viewing scitypes selected, and the schema and take a glimpse at the first four records of the data.</p>
+
+<h2 id="data-import-and-visualizations">Data Import and visualizations</h2>
+<p>Let’s download the data and put the path to it in the <code class="language-plaintext highlighter-rouge">CSV.read(&lt;path&gt;)</code>.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="x">(</span><span class="s">"dataR2.csv"</span><span class="x">);</span>
+<span class="nd">@show</span> <span class="n">schema</span><span class="x">(</span><span class="n">data</span><span class="x">)</span><span class="o">.</span><span class="n">scitypes</span>
+<span class="nd">@show</span> <span class="n">schema</span><span class="x">(</span><span class="n">data</span><span class="x">)</span>
+<span class="n">first</span><span class="x">(</span><span class="n">data</span><span class="x">,</span> <span class="mi">4</span><span class="x">)</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/julia-1/julia-0.png" alt="glimpse of the dataset" /></p>
+
+<p>Our purpose for today is to create models that can predict the Classification variable. Which is the classification of the patient.</p>
+<ul>
+  <li>1 is for healthy controls</li>
+  <li>2 is for real patient</li>
+</ul>
+
+<p>To predict it, we will use the remaining variables (like Age, BMI, etc).
+So we will check how the variable is distributed in the dataset to see if it is balanced.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">by</span><span class="x">(</span><span class="n">data</span><span class="x">,</span><span class="o">:</span><span class="n">Classification</span><span class="x">,</span><span class="n">nrow</span><span class="x">)</span>
+</code></pre></div></div>
+<p><img src="/assets/img/julia-1/julia-1-1.png" alt="target distribution" /></p>
+
+<p>Fairly balanced, so let’s look at some descriptive statistics of the whole dataset.</p>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">describe</span><span class="x">(</span><span class="n">data</span><span class="x">)</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/julia-1/julia-1-2.png" alt="data description" /></p>
+
+<p>No missings and all numeric data. That’s cool!
+For MLJ package, scitypes are core. So we will coerce them to continuous and OrderedFactor to apply the most known models down the line.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">coerce!</span><span class="x">(</span><span class="n">data</span><span class="x">,</span> <span class="o">:</span><span class="n">Classification</span><span class="o">=&gt;</span><span class="n">OrderedFactor</span><span class="x">);</span>
+<span class="n">coerce!</span><span class="x">(</span><span class="n">data</span><span class="x">,</span> <span class="n">Count</span><span class="o">=&gt;</span><span class="n">Continuous</span><span class="x">);</span>
+</code></pre></div></div>
+
+<p>Now we are ready to make some visualizations and get a better understanding of the data at hand.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data_m</span><span class="o">=</span><span class="n">convert</span><span class="x">(</span><span class="kt">Matrix</span><span class="x">,</span><span class="n">data</span><span class="x">)</span>
+<span class="n">p</span><span class="o">=</span><span class="n">boxplot</span><span class="x">(</span><span class="n">layout</span><span class="o">=</span><span class="mi">9</span><span class="x">)</span>
+<span class="n">p</span><span class="o">=</span><span class="n">boxplot</span><span class="x">(</span><span class="n">layout</span><span class="o">=</span><span class="mi">9</span><span class="x">,</span><span class="n">size</span><span class="o">=</span><span class="x">(</span><span class="mi">800</span><span class="x">,</span><span class="mi">800</span><span class="x">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">9</span>
+    <span class="n">boxplot!</span><span class="x">([</span><span class="n">names</span><span class="x">(</span><span class="n">data</span><span class="x">)[</span><span class="n">i</span><span class="x">]],</span><span class="n">data_m</span><span class="x">[</span><span class="o">:</span><span class="x">,</span><span class="n">i</span><span class="x">],</span> <span class="n">subplot</span> <span class="o">=</span> <span class="n">i</span><span class="x">,</span><span class="n">label</span><span class="o">=</span><span class="nb">nothing</span> <span class="x">)</span>
+<span class="k">end</span>
+<span class="n">display</span><span class="x">(</span><span class="n">p</span><span class="x">)</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/julia-1/julia-1-3.png" alt="boxplot1" /></p>
+
+<p><img src="/assets/img/julia-1/julia-1-4.png" alt="data description" /></p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@df</span> <span class="n">data</span> <span class="n">corrplot</span><span class="x">(</span><span class="n">cols</span><span class="x">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">4</span><span class="x">))</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/julia-1/julia-1-5.png" alt="data description" /></p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@df</span> <span class="n">data</span> <span class="n">corrplot</span><span class="x">(</span><span class="n">cols</span><span class="x">(</span><span class="mi">5</span><span class="o">:</span><span class="mi">8</span><span class="x">))</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/julia-1/julia-1-6.png" alt="data description" /></p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">p</span><span class="o">=</span><span class="n">boxplot</span><span class="x">(</span><span class="n">layout</span><span class="o">=</span><span class="mi">9</span><span class="x">,</span><span class="n">size</span><span class="o">=</span><span class="x">(</span><span class="mi">1200</span><span class="x">,</span><span class="mi">600</span><span class="x">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">9</span>
+    <span class="n">boxplot!</span><span class="x">(</span><span class="n">data_m</span><span class="x">[</span><span class="o">:</span><span class="x">,</span><span class="mi">10</span><span class="x">],</span><span class="n">data_m</span><span class="x">[</span><span class="o">:</span><span class="x">,</span><span class="n">i</span><span class="x">]</span> <span class="x">,</span>  <span class="n">group</span><span class="o">=</span><span class="n">data_m</span><span class="x">[</span><span class="o">:</span><span class="x">,</span><span class="mi">10</span><span class="x">],</span> <span class="n">subplot</span> <span class="o">=</span> <span class="n">i</span><span class="x">,</span><span class="n">title</span> <span class="o">=</span><span class="n">names</span><span class="x">(</span><span class="n">data</span><span class="x">)[</span><span class="n">i</span><span class="x">]</span> <span class="x">,</span><span class="n">xaxis</span><span class="o">=</span><span class="nb">nothing</span><span class="x">,</span><span class="n">label</span><span class="o">=</span><span class="x">[</span><span class="s">"Control"</span> <span class="s">"Patient"</span><span class="x">]</span> <span class="x">)</span>
+<span class="k">end</span>
+<span class="n">display</span><span class="x">(</span><span class="n">p</span><span class="x">)</span>
+</code></pre></div></div>
+<p><img src="/assets/img/julia-1/julia-1-7.png" alt="data description" /></p>
+
+<p>We can check with the graphs above that it really seems to be a difference in the classifiers regarding the target variable Classification. We can now make our models.</p>
+
+<h2 id="creating-models">Creating Models</h2>
+<p>First, we unpack the data into a target (y) and predictors (X)
+For getting more information on julia functions, we can type <code class="language-plaintext highlighter-rouge">??unpack</code> to get more info.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">y</span><span class="x">,</span><span class="n">X</span><span class="o">=</span> <span class="n">unpack</span><span class="x">(</span><span class="n">data</span><span class="x">,</span><span class="o">==</span><span class="x">(</span><span class="o">:</span><span class="n">Classification</span><span class="x">),</span><span class="n">colname</span> <span class="o">-&gt;</span> <span class="nb">true</span><span class="x">);</span>
+</code></pre></div></div>
+<p>MLJ provides the model function that has information on all the models that we can use. We can filter it by the data scitypes that we have (remember the coercing earlier).</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">models</span><span class="x">(</span><span class="n">matching</span><span class="x">(</span><span class="n">X</span><span class="x">,</span> <span class="n">y</span><span class="x">))</span> <span class="c">#searching by input and target scitypes</span>
+</code></pre></div></div>
+<p>We can also filter by name.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">models</span><span class="x">(</span><span class="s">"forest"</span><span class="x">)</span><span class="c">#searching models by name</span>
+</code></pre></div></div>
+<blockquote>
+  <p>4-element Array{NamedTuple{(:name, :package_name, :is_supervised, :docstring, :hyperparameter_ranges, :hyperparameter_types, :hyperparameters, :implemented_methods, :is_pure_julia, :is_wrapper, :load_path, :package_license, :package_url, :package_uuid, :prediction_type, :supports_online, :supports_weights, :input_scitype, :target_scitype, :output_scitype),T} where T&lt;:Tuple,1}:
+ (name = RandomForestClassifier, package_name = DecisionTree, … )
+ (name = RandomForestClassifier, package_name = ScikitLearn, … )
+ (name = RandomForestRegressor, package_name = DecisionTree, … )
+ (name = RandomForestRegressor, package_name = ScikitLearn, … )</p>
+</blockquote>
+
+<p>Let’s try and use a few models to get a better grasp of the package and existent models. Let’s try linear, non-linear and some more advanced models. But first, let’s create a training dataset and a test dataset and a dict to collect all the test results. rng is the seed for the randomization and guarantees reproducibility.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span><span class="x">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">partition</span><span class="x">(</span><span class="n">eachindex</span><span class="x">(</span><span class="n">y</span><span class="x">),</span> <span class="mf">0.8</span><span class="x">,</span><span class="n">shuffle</span><span class="o">=</span><span class="nb">true</span><span class="x">,</span><span class="n">rng</span><span class="o">=</span><span class="mi">42</span><span class="x">)</span>
+<span class="n">test_results</span><span class="o">=</span><span class="kt">Dict</span><span class="x">();</span>
+</code></pre></div></div>
+<p>For all the models, the workflow will be similar:</p>
+<ol>
+  <li>load the model with @load</li>
+  <li>create the machine according to our data (This does not train the model, only instantiates it).</li>
+  <li>Fit and evaluate the performance of the model with the training dataset. In this case, we will use 10-fold cross-validation, collect two measures (accuracy and confusion matrix)Evaluate the performance of the model with the training dataset. In this case, we will use 10-fold cross-validation, and collect two measures (accuracy and confusion matrix).</li>
+  <li>We then use the trained model to predict the unseen data (test set) and collect the accuracy in the test set in the previously created dictionary.</li>
+</ol>
+
+<p>First, we can use the Linear Discriminant Analysis.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># LDA</span>
+<span class="n">Random</span><span class="o">.</span><span class="n">seed!</span><span class="x">(</span><span class="mi">1234</span><span class="x">);</span>
+<span class="n">model_lda</span><span class="o">=</span><span class="nd">@load</span> <span class="n">LDA</span>
+<span class="n">mach_lda</span><span class="o">=</span><span class="n">machine</span><span class="x">(</span><span class="n">model_lda</span><span class="x">,</span><span class="n">X</span><span class="x">,</span><span class="n">y</span><span class="x">)</span>
+<span class="n">eval_lda</span><span class="o">=</span><span class="n">evaluate!</span><span class="x">(</span><span class="n">mach_lda</span><span class="x">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">train</span><span class="x">,</span> <span class="n">resampling</span><span class="o">=</span><span class="n">CV</span><span class="x">(</span><span class="n">nfolds</span><span class="o">=</span><span class="mi">10</span><span class="x">,</span><span class="n">shuffle</span><span class="o">=</span><span class="nb">true</span><span class="x">,</span><span class="n">rng</span><span class="o">=</span><span class="mi">42</span><span class="x">),</span> <span class="n">measures</span><span class="o">=</span><span class="x">[</span><span class="n">accuracy</span><span class="x">,</span><span class="n">confusion_matrix</span><span class="x">],</span><span class="n">operation</span><span class="o">=</span><span class="n">predict_mode</span><span class="x">)</span>
+<span class="n">eval_lda</span><span class="o">.</span><span class="n">measurement</span><span class="x">[</span><span class="mi">2</span><span class="x">]</span>
+<span class="n">ŷ</span> <span class="o">=</span> <span class="n">predict_mode</span><span class="x">(</span><span class="n">mach_lda</span><span class="x">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">test</span><span class="x">)</span>
+<span class="n">test_results</span><span class="x">[</span><span class="s">"acc_lda"</span><span class="x">]</span> <span class="o">=</span> <span class="n">accuracy</span><span class="x">(</span><span class="n">ŷ</span><span class="x">,</span> <span class="n">y</span><span class="x">[</span><span class="n">test</span><span class="x">])</span>
+</code></pre></div></div>
+<p>For non-linear, we will try a decision tree and the k nearest neighbour algorithm (Knn).</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Decision tree</span>
+<span class="n">Random</span><span class="o">.</span><span class="n">seed!</span><span class="x">(</span><span class="mi">1234</span><span class="x">);</span>
+<span class="n">model_tree</span> <span class="o">=</span> <span class="nd">@load</span> <span class="n">DecisionTreeClassifier</span>
+<span class="n">mach_tree</span> <span class="o">=</span> <span class="n">machine</span><span class="x">(</span><span class="n">model_tree</span><span class="x">,</span> <span class="n">X</span><span class="x">,</span> <span class="n">y</span><span class="x">)</span>
+<span class="n">eval_tree</span><span class="o">=</span><span class="n">evaluate!</span><span class="x">(</span><span class="n">mach_tree</span><span class="x">,</span><span class="n">rows</span><span class="o">=</span><span class="n">train</span><span class="x">,</span> <span class="n">resampling</span><span class="o">=</span><span class="n">CV</span><span class="x">(</span><span class="n">nfolds</span><span class="o">=</span><span class="mi">10</span><span class="x">,</span><span class="n">shuffle</span><span class="o">=</span><span class="nb">true</span><span class="x">,</span><span class="n">rng</span><span class="o">=</span><span class="mi">42</span><span class="x">),</span> <span class="n">measures</span><span class="o">=</span><span class="x">[</span><span class="n">accuracy</span><span class="x">,</span><span class="n">confusion_matrix</span><span class="x">],</span><span class="n">operation</span><span class="o">=</span><span class="n">predict_mode</span><span class="x">)</span>
+<span class="n">eval_tree</span><span class="o">.</span><span class="n">measurement</span><span class="x">[</span><span class="mi">2</span><span class="x">]</span>
+<span class="n">ŷ</span> <span class="o">=</span> <span class="n">predict_mode</span><span class="x">(</span><span class="n">mach_tree</span><span class="x">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">test</span><span class="x">)</span>
+<span class="n">test_results</span><span class="x">[</span><span class="s">"acc_tree"</span><span class="x">]</span> <span class="o">=</span> <span class="n">accuracy</span><span class="x">(</span><span class="n">ŷ</span><span class="x">,</span> <span class="n">y</span><span class="x">[</span><span class="n">test</span><span class="x">])</span>
+<span class="c"># KNN</span>
+<span class="n">Random</span><span class="o">.</span><span class="n">seed!</span><span class="x">(</span><span class="mi">1234</span><span class="x">);</span>
+<span class="n">model_knn</span><span class="o">=</span> <span class="nd">@load</span> <span class="n">KNNClassifier</span>
+<span class="n">mach_knn</span> <span class="o">=</span> <span class="n">machine</span><span class="x">(</span><span class="n">model_knn</span><span class="x">,</span> <span class="n">X</span><span class="x">,</span> <span class="n">y</span><span class="x">)</span>
+<span class="n">eval_knn</span><span class="o">=</span><span class="n">evaluate!</span><span class="x">(</span><span class="n">mach_knn</span><span class="x">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">train</span><span class="x">,</span> <span class="n">resampling</span><span class="o">=</span><span class="n">CV</span><span class="x">(</span><span class="n">nfolds</span><span class="o">=</span><span class="mi">10</span><span class="x">,</span><span class="n">shuffle</span><span class="o">=</span><span class="nb">true</span><span class="x">,</span><span class="n">rng</span><span class="o">=</span><span class="mi">42</span><span class="x">),</span> <span class="n">measures</span><span class="o">=</span><span class="x">[</span><span class="n">accuracy</span><span class="x">,</span><span class="n">confusion_matrix</span><span class="x">],</span><span class="n">operation</span><span class="o">=</span><span class="n">predict_mode</span><span class="x">)</span>
+<span class="n">eval_knn</span><span class="o">.</span><span class="n">measurement</span><span class="x">[</span><span class="mi">2</span><span class="x">]</span>
+<span class="n">ŷ</span> <span class="o">=</span> <span class="n">predict_mode</span><span class="x">(</span><span class="n">mach_knn</span><span class="x">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">test</span><span class="x">)</span>
+<span class="n">test_results</span><span class="x">[</span><span class="s">"acc_knn"</span><span class="x">]</span> <span class="o">=</span><span class="n">accuracy</span><span class="x">(</span><span class="n">ŷ</span><span class="x">,</span> <span class="n">y</span><span class="x">[</span><span class="n">test</span><span class="x">])</span>
+</code></pre></div></div>
+
+<p>Finally, we will try Support Vector Machines (SVM) and Random Forest (an ensemble of trees).</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># SVM</span>
+<span class="n">model_svm</span><span class="o">=</span> <span class="nd">@load</span> <span class="n">SVMLinearClassifier</span><span class="x">()</span>
+<span class="n">model_svm</span><span class="o">.</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span> <span class="c">#you can easily modify models (here we add the random state)</span>
+<span class="n">mach_svm</span> <span class="o">=</span> <span class="n">machine</span><span class="x">(</span><span class="n">model_svm</span><span class="x">,</span> <span class="n">X</span><span class="x">,</span> <span class="n">y</span><span class="x">)</span>
+<span class="n">eval_svm</span><span class="o">=</span><span class="n">evaluate!</span><span class="x">(</span><span class="n">mach_svm</span><span class="x">,</span><span class="n">rows</span><span class="o">=</span><span class="n">train</span><span class="x">,</span> <span class="n">resampling</span><span class="o">=</span><span class="n">CV</span><span class="x">(</span><span class="n">nfolds</span><span class="o">=</span><span class="mi">10</span><span class="x">,</span><span class="n">shuffle</span><span class="o">=</span><span class="nb">true</span><span class="x">,</span><span class="n">rng</span><span class="o">=</span><span class="mi">42</span><span class="x">),</span> <span class="n">measures</span><span class="o">=</span><span class="x">[</span><span class="n">accuracy</span><span class="x">,</span><span class="n">confusion_matrix</span><span class="x">],</span><span class="n">operation</span><span class="o">=</span><span class="n">predict</span><span class="x">)</span>
+<span class="n">eval_svm</span><span class="o">.</span><span class="n">measurement</span><span class="x">[</span><span class="mi">2</span><span class="x">]</span>
+<span class="n">ŷ</span> <span class="o">=</span> <span class="n">predict</span><span class="x">(</span><span class="n">mach_svm</span><span class="x">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">test</span><span class="x">)</span>
+<span class="n">test_results</span><span class="x">[</span><span class="s">"acc_svm"</span><span class="x">]</span> <span class="o">=</span> <span class="n">accuracy</span><span class="x">(</span><span class="n">ŷ</span><span class="x">,</span> <span class="n">y</span><span class="x">[</span><span class="n">test</span><span class="x">])</span>
+
+<span class="c"># Random Forest</span>
+<span class="n">Random</span><span class="o">.</span><span class="n">seed!</span><span class="x">(</span><span class="mi">1234</span><span class="x">);</span>
+<span class="n">model_rf</span><span class="o">=</span> <span class="nd">@load</span> <span class="n">RandomForestClassifier</span> <span class="n">pkg</span><span class="o">=</span><span class="s">"DecisionTree"</span>
+<span class="n">mach_rf</span> <span class="o">=</span> <span class="n">machine</span><span class="x">(</span><span class="n">model_rf</span><span class="x">,</span> <span class="n">X</span><span class="x">,</span> <span class="n">y</span><span class="x">)</span>
+<span class="n">eval_rf</span><span class="o">=</span><span class="n">evaluate!</span><span class="x">(</span><span class="n">mach_rf</span><span class="x">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">train</span><span class="x">,</span><span class="n">resampling</span><span class="o">=</span><span class="n">CV</span><span class="x">(</span><span class="n">nfolds</span><span class="o">=</span><span class="mi">10</span><span class="x">,</span><span class="n">shuffle</span><span class="o">=</span><span class="nb">true</span><span class="x">,</span><span class="n">rng</span><span class="o">=</span><span class="mi">42</span><span class="x">),</span> <span class="n">measures</span><span class="o">=</span><span class="x">[</span><span class="n">accuracy</span><span class="x">,</span><span class="n">confusion_matrix</span><span class="x">],</span><span class="n">operation</span><span class="o">=</span><span class="n">predict_mode</span><span class="x">)</span>
+<span class="n">eval_rf</span><span class="o">.</span><span class="n">measurement</span><span class="x">[</span><span class="mi">2</span><span class="x">]</span>
+<span class="n">ŷ</span> <span class="o">=</span> <span class="n">predict_mode</span><span class="x">(</span><span class="n">mach_rf</span><span class="x">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">test</span><span class="x">)</span>
+<span class="n">test_results</span><span class="x">[</span><span class="s">"acc_rf"</span><span class="x">]</span> <span class="o">=</span> <span class="n">accuracy</span><span class="x">(</span><span class="n">ŷ</span><span class="x">,</span> <span class="n">y</span><span class="x">[</span><span class="n">test</span><span class="x">])</span>
+</code></pre></div></div>
+
+<h2 id="summing-up">Summing up</h2>
+
+<p>Now we collect all the accuracy calculated in the cross-validation and create a visualization presenting the average and standard deviations of the 10 results for each model.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">results</span><span class="o">=</span> <span class="x">[</span><span class="n">eval_lda</span><span class="o">.</span><span class="n">measurement</span><span class="x">[</span><span class="mi">1</span><span class="x">],</span> <span class="n">eval_knn</span><span class="o">.</span><span class="n">measurement</span><span class="x">[</span><span class="mi">1</span><span class="x">],</span><span class="n">eval_svm</span><span class="o">.</span><span class="n">measurement</span><span class="x">[</span><span class="mi">1</span><span class="x">],</span><span class="n">eval_rf</span><span class="o">.</span><span class="n">measurement</span><span class="x">[</span><span class="mi">1</span><span class="x">],</span><span class="n">eval_tree</span><span class="o">.</span><span class="n">measurement</span><span class="x">[</span><span class="mi">1</span><span class="x">]];</span>
+<span class="n">errors</span><span class="o">=</span><span class="x">[</span><span class="n">std</span><span class="x">(</span><span class="n">eval_lda</span><span class="o">.</span><span class="n">per_fold</span><span class="x">[</span><span class="mi">1</span><span class="x">]),</span><span class="n">std</span><span class="x">(</span><span class="n">eval_knn</span><span class="o">.</span><span class="n">per_fold</span><span class="x">[</span><span class="mi">1</span><span class="x">]),</span><span class="n">std</span><span class="x">(</span><span class="n">eval_svm</span><span class="o">.</span><span class="n">per_fold</span><span class="x">[</span><span class="mi">1</span><span class="x">]),</span><span class="n">std</span><span class="x">(</span><span class="n">eval_rf</span><span class="o">.</span><span class="n">per_fold</span><span class="x">[</span><span class="mi">1</span><span class="x">]),</span><span class="n">std</span><span class="x">(</span><span class="n">eval_tree</span><span class="o">.</span><span class="n">per_fold</span><span class="x">[</span><span class="mi">1</span><span class="x">])]</span>
+<span class="n">scatter</span><span class="x">([</span><span class="s">"lda"</span><span class="x">,</span> <span class="s">"knn"</span><span class="x">,</span> <span class="s">"svm"</span><span class="x">,</span> <span class="s">"rf"</span><span class="x">,</span> <span class="s">"tree"</span><span class="x">],</span><span class="n">results</span><span class="x">,</span><span class="n">yerror</span><span class="o">=</span><span class="n">errors</span><span class="x">,</span><span class="n">ylims</span><span class="o">=</span><span class="x">[</span><span class="mi">0</span><span class="x">,</span><span class="mi">1</span><span class="x">],</span><span class="n">label</span><span class="o">=</span><span class="s">"accuracy"</span><span class="x">)</span>
+</code></pre></div></div>
+<p><img src="/assets/img/julia-1/julia-1-8.png" alt="data accuracy" /></p>
+
+<p>We can also check the accuracy of the test set.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">scatter</span><span class="x">(</span><span class="kt">Array</span><span class="x">(</span><span class="n">string</span><span class="o">.</span><span class="x">(</span><span class="n">keys</span><span class="x">(</span><span class="n">test_results</span><span class="x">))),</span><span class="kt">Array</span><span class="x">(</span><span class="n">float</span><span class="o">.</span><span class="x">(</span><span class="n">values</span><span class="x">(</span><span class="n">test_results</span><span class="x">))),</span><span class="n">ylims</span><span class="o">=</span><span class="x">[</span><span class="mi">0</span><span class="x">,</span><span class="mi">1</span><span class="x">],</span><span class="n">label</span><span class="o">=</span><span class="s">"accuracy"</span><span class="x">)</span>
+</code></pre></div></div>
+<p><img src="/assets/img/julia-1/julia-1-9.png" alt="data accuracy" /></p>
+
+<p>The best model for the test set seemed to be the decision tree. We can inspect the model further with these functions.</p>
+
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#checking fitting parameters for the possible best model</span>
+<span class="n">report</span><span class="x">(</span><span class="n">mach_lda</span><span class="x">)</span>
+<span class="n">fitted_params</span><span class="x">(</span><span class="n">mach_lda</span><span class="x">)</span>
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This was a simple exercise about how to use Julia and some more popular packages to create simple classification models.</p>
+
+<p>We did not tune any of the models nor used any kind of hyperparameter modification. Nevertheless, we already could create models robust enough to make accurate predictions. Julia is a strong and robust language growing and very interesting to look into.</p>
+
+<p>If you want to know more about Julia, check their website or their Github.</p>
+
+<p>Happy coding! 🚀</p>
+<blockquote>
+  <p>(this post was collected from my medium profile)</p>
+</blockquote>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-10-15T12:00:00+00:00">October 15, 2020</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="/posts/2021-12-15-regression-julia.html" class="pagination--pager" title="Regression Tutorial with Julia lang
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/posts/2023-01-10-Converting-bif-to-net.html" rel="permalink">Tech Tips #0
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">I’m launching a new category dedicated to small tech tips, where I’ll document the challenges and solutions I encounter during my PhD journey, as well as in ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/posts/2022-08-16-Academic-resources.html" rel="permalink">Academic Resources
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Grad students are often confronted with a great task in order to finish their thesis. From writing our thesis, keeping up with the state-of-the-art of our ar...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/posts/2021-12-15-regression-julia.html" rel="permalink">Regression Tutorial with Julia lang
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Hi, in my last post, I showed how Julia can be used to perform a classification task. In that case, we classified patients into two categories, so it was a c...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 . Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
