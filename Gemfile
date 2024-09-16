@@ -7,8 +7,8 @@ source "https://rubygems.org"
 #
 # gem "minima", "~> 2.5.1"
 #gem "minimal-mistakes-jekyll"
-gem "liquid", "~> 4.0.4"
-gem "faraday-retry"
+#gem "liquid", "~> 4.0.4"
+#gem "faraday-retry"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "github-pages"
@@ -19,9 +19,9 @@ end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
-platforms :mingw, :x64_mingw, :mswin, :jruby do
-  gem "tzinfo", "~> 1.2"
-  gem "tzinfo-data"
-end
+#platforms :mingw, :x64_mingw, :mswin, :jruby do
+#  gem "tzinfo", "~> 1.2"
+#  gem "tzinfo-data"
+#end
 
 
