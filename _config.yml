@@ -19,13 +19,14 @@ scholar:
   style: modern-language-association
   order: descending
   sort_by: year,month
-  bibliography_template: bib
+  bibliography_template: bib.html
   source: ./_bibliography/
+  bibliography_class: bibliography
 
 repository: joofio/online-cv
 author: João Almeida
-title: null
-name: ""
+title: "joaoalmeida"
+name: "joaoalmeida"
 baseurl: ""
 url: "https://joaofcalmeida.pt"
 
