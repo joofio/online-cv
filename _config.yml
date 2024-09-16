@@ -19,9 +19,7 @@ scholar:
   style: modern-language-association
   order: descending
   sort_by: year,month
-  bibliography_template: bib.html
-  source: _bibliography/
-  bibliography_class: bibliography
+  bibliography_template: bib
 
 repository: joofio/online-cv
 author: João Almeida
