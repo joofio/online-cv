@@ -6,7 +6,7 @@ source "https://rubygems.org"
 #     bundle exec jekyll serve
 #
 # gem "minima", "~> 2.5.1"
-gem "minimal-mistakes-jekyll"
+#gem "minimal-mistakes-jekyll"
 
 gem "faraday-retry"
 # If you have any plugins, put them here!
