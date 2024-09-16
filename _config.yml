@@ -20,7 +20,7 @@ scholar:
   order: descending
   sort_by: year,month
   bibliography_template: bib.html
-  source: _bibliography/references.bib
+  source: _bibliography/
   bibliography_class: bibliography
 
 repository: joofio/online-cv
