@@ -8,6 +8,7 @@ source "https://rubygems.org"
 # gem "minima", "~> 2.5.1"
 gem "minimal-mistakes-jekyll"
 
+gem "faraday-retry"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "github-pages"
