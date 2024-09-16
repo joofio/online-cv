@@ -9,6 +9,8 @@ source "https://rubygems.org"
 #gem "minimal-mistakes-jekyll"
 #gem "liquid", "~> 4.0.4"
 #gem "faraday-retry"
+gem 'nokogiri', '~> 1.13'
+
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "github-pages"
