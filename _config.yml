@@ -20,6 +20,7 @@ scholar:
   order: descending
   sort_by: year,month
   bibliography_template: bib
+  source: ./_bibliography/references.bib
 
 repository: joofio/online-cv
 author: João Almeida
