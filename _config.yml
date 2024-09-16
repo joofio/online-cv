@@ -43,3 +43,5 @@ defaults:
       comments: false
       share: false
       related: true
+github:
+  token: $JEKYLL_GITHUB_TOKEN
