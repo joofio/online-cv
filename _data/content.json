@@ -1,5 +1,5 @@
 {
-  "about": "IT Pharmacist with over 10 years of experience in health information technology. Expertise in data analysis, data modelling and data exchange. Interoperability expert with several implementations and different standards. Focused on improving healthcare using data-based decisions.",
+  "about": "IT Pharmacist with over 10 years of experience in health information technology. Expertise in data analysis, data modelling and data exchange. Interoperability expert with several implementations and different standards. Focused on improving healthcare using data-based decisions. PharmD, Msc, PhD",
   "about_header": "Data Management &amp; Science. ",
   "about_headline": "Creating Data solutions for healthcare. ",
   "about_description": "Healthcare needs to be safer and more efficient. With a combined background in pharmaceutical Sciences and Health Informatics, my ambition is to use technology to improve patient safety, to increase treatment efficacy and to improve care efficiency.",
@@ -36,7 +36,7 @@
     {
       "name": "PhD in Health Data Science",
       "institution": "Faculty of Medicine of University of Porto, Portugal",
-      "date": "2019 - Now",
+      "date": "2019 - 2024",
       "tag": "Specialization in Federated Learning, Data modelling, Generative networks and real word evidence"
     },
     {
