@@ -20,6 +20,7 @@ group :jekyll_plugins do
   gem 'jekyll-relative-links'
   gem 'jekyll-seo-tag'
   gem 'jekyll-gist'
+  gem 'jekyll-github-metadata'
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
