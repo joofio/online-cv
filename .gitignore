@@ -10,3 +10,7 @@ _site/
 # Ruby/Bundler
 vendor/
 .bundle/
+
+# Environment variables (contains secrets)
+.env
+.env.local

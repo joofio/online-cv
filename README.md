@@ -45,6 +45,26 @@ The GitHub API credentials you provided aren't valid.
 
    For a permanent solution, add this to your shell profile (`.bashrc`, `.zshrc`, etc.) or use a tool like `direnv`.
 
+3. **Optional: Use a `.env` file (recommended for convenience):**
+
+   Install the `dotenv` gem:
+   ```bash
+   gem install dotenv
+   # or add to Gemfile: gem 'dotenv'
+   ```
+
+   Create a `.env` file in the project root:
+   ```bash
+   echo "JEKYLL_GITHUB_TOKEN=your_personal_access_token_here" > .env
+   ```
+
+   **Important:** Make sure `.env` is in your `.gitignore` to avoid committing your token!
+
+   Then run Jekyll normally:
+   ```bash
+   bundle exec jekyll serve
+   ```
+
 ### For GitHub Actions (Already Configured)
 
 The GitHub Actions workflow is already configured to use the `JEKYLL_GITHUB_TOKEN` secret. To set it up:
