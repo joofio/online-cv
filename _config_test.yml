@@ -1,0 +1,44 @@
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-relative-links
+  - jekyll/scholar
+  - jekyll-seo-tag
+  - jekyll-include-cache
+
+relative_links:
+  enabled: true
+  collections: true
+
+permalink: /:collection/:year-:month-:day-:title:output_ext
+show_excerpts: true
+
+github_username: joofio
+scholar:
+  style: modern-language-association
+  order: descending
+  sort_by: year,month
+  bibliography_template: bib
+
+repository: joofio/online-cv
+author: João Almeida
+title: "joaoalmeida"
+name: "joaoalmeida"
+baseurl: ""
+url: "https://joaofcalmeida.pt"
+
+include: [CNAME]
+
+##minimal-mistakes
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: false
+      share: false
+      related: true
