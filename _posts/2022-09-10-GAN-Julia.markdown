@@ -1,0 +1,24 @@
+---
+title:  "GANs With Julia: Intro"
+date:   2022-09-10 12:00:00 +0000
+categories: gan deep-learning julia synthetic data
+---
+First introduced in 2014 by Ian Goodfellow, Generative Adversarial Networks (GANs) have been under the scope and have been proven very good for generating complex data. Images, text, video have been successfully generated with very good performances.
+
+The original architecture is based on two artificial neural networks trained simultaneously in a competitive manner. One of them, the generator, has the objective of generating the most realistic possible data,while the second network - the discriminator, has the opposite aim of aiming to distinguish the realistic data from the synthetic data the best it can. So, the elegance of this architecture is that each network tries to make the other perform better every time. The GAN architecture is shown below:
+
+<figure>
+<img src=../assets/img/gans-julia/gans-julia-0.png  style="width:100%">
+<figcaption align = "center"><b>GAN architecture</b></figcaption>
+</figure>
+
+
+The discriminator is represented by D<sub>ω</sub>, parametrised by weights *ω*. The goal of the discriminator is to assign **1** to the samples from the real distribution P<sub>X</sub> and **0** to the generated samples (P<sub>θ </sub>). So, GANs can be mathematically represented by a minimax game identified by:
+
+$\min_{G}\max_{D} \; E [log(D_{\omega}(X)) + log(1-D_{\omega}(G_{\theta}(Z))]$
+
+So, **G** must minimise this equation and **D** must maximise it, each one tweaking the weights of its network (*θ* and *ω*) to do so.
+
+## Putting this knowledge into practice
+The very basic implementation we are going to follow through came firstly from [julialang discourse](https://discourse.julialang.org/t/1d-gan-with-flux/54179/9), so props where props are due. The idea is to create a simple implementation so we can follow along and additionally, that gans for image generation are very common on the internet, so this is also an opportunity to explore something different.
+To create this, we will need [Flux](https://fluxml.ai) package.

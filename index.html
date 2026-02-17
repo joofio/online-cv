@@ -16,7 +16,7 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;700&family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Js Fonts (orcid...)-->
   <script src="https://kit.fontawesome.com/2349cbdc3b.js" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
@@ -53,8 +53,9 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
-      <h1>João</h1>
-      <p>I'm a <span class="typed" data-typed-items="Pharmacist, Data Scientist, Researcher, Lecturer"></span></p>
+      <h1>João Almeida</h1>
+      <p>I'm a <span class="typed" data-typed-items="Researcher, Consultant, Tech CEO, Assistant Professor, Digital Health Leader"></span></p>
+      <p class="hero-tagline">Bridging pharmacy, data science, and digital health leadership</p>
     </div>
   </section><!-- End Hero -->
 
@@ -85,7 +86,7 @@
               <div class="col-lg-6">
                 <ul>
                 <!--  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 Aug 1990</span></li>-->
-               <!-- <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>joaofcalmeida.pt</span></li>-->  
+               <!-- <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>joaofcalmeida.pt</span></li>-->
                 <!--  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li> -->
                   <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Porto, Portugal</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
@@ -109,6 +110,32 @@
       </div>
     </section><!-- End About Section -->
 
+    <!-- ======= Roles at a Glance Section ======= -->
+    <section id="roles" class="roles section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Roles at a Glance</h2>
+          <p>A snapshot of my professional facets across research, industry, and academia.</p>
+        </div>
+
+        <div class="row">
+          {% for role in site.data.content.roles %}
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.index0 | times: 100 }}">
+            <a href="{{ role.link }}" class="role-card-link">
+              <div class="role-card">
+                <div class="role-icon"><i class="{{ role.icon }}"></i></div>
+                <h4>{{ role.title }}</h4>
+                <p>{{ role.description }}</p>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section><!-- End Roles Section -->
+
     <!-- ======= Facts Section ======= -->
     <section id="facts" class="facts">
       <div class="container">
@@ -122,9 +149,9 @@
 
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
             <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects Implemented</strong> in different health institutions</p>
+              <i class="bi bi-journal-richtext"></i>
+              <span data-purecounter-start="0" data-purecounter-end="9" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Publications</strong> in peer-reviewed journals and conferences</p>
             </div>
           </div>
 
@@ -132,23 +159,23 @@
             <div class="count-box">
               <i class="bi bi-globe"></i>
               <span data-purecounter-start="0" data-purecounter-end="13" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Countries</strong> all over the world</p>
+              <p><strong>Countries</strong> with project implementations worldwide</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="count-box">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Different positions</strong> across digital health product development</p>
+              <i class="bi bi-award"></i>
+              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Courses taught</strong> from health information systems to interoperability</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
             <div class="count-box">
-              <i class="bi bi-journals"></i>
-              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Different classes</strong> taught, from health information system development to interoperability</p>
+              <i class="bi bi-calendar-check"></i>
+              <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Years of experience</strong> in health information technology</p>
             </div>
           </div>
 
@@ -229,49 +256,38 @@
 
         <div class="section-title">
           <h2>Resume</h2>
-          <p>    {{ site.data.content.resume_description }}          </p>
+          <p>{{ site.data.content.resume_description }}</p>
         </div>
 
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Summary</h3>
-            <div class="resume-item pb-0">
-              <h4>João Almeida</h4>
-              <p><em>{{ site.data.content.resume_summary }}</em></p>
-              <ul>
-                <li>Porto, Portugal</li>
-                <!--<li>(123) 456-7891</li>-->
-                <li>joaofcalmeida [at] outlook.com</li>
-              </ul>
-            </div>
-
-            <h3 class="resume-title">Education</h3>
-            {% for item in site.data.content.education %}
-
-            <div class="resume-item"> 
-              <h4>{{ item.name }}</h4>
-              <h5>{{ item.date }}</h5>
-              <p><em>{{ item.institution }}</em></p>
-              <p>{{ item.tag }}</p>
-            </div>
-            {% endfor %}
-
-          <h3 class="resume-title">Associative</h3>
-          {% for item in site.data.content.associative %}
-
-          <div class="resume-item">
-            <h4>{{ item.name }}</h4>
-            <h5>{{ item.date }}</h5>
-            <p>{{ item.tag }}</p>
-          </div>
-          {% endfor %}
-
-
-         
-        </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Professional Experience</h3>
+        <!-- Current Roles banner -->
+        <div class="resume-group" data-aos="fade-up">
+          <h3 class="resume-group-title"><i class="bi bi-lightning-charge"></i> Current Roles</h3>
+          <div class="row">
             {% for item in site.data.content.professional %}
+            {% if item.date contains "Present" %}
+            <div class="col-lg-4 col-md-6">
+              <div class="resume-role-card">
+                <h4>{{ item.position }}</h4>
+                <h5>{{ item.date }}</h5>
+                <p class="resume-role-location"><em>{{ item.location }}</em></p>
+                <ul>
+                  {% for desc in item.description %}
+                  <li>{{ desc }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Previous Experience -->
+        <div class="row mt-4">
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Previous Experience</h3>
+            {% for item in site.data.content.professional %}
+            {% unless item.date contains "Present" %}
             <div class="resume-item">
               <h4>{{ item.position }}</h4>
               <h5>{{ item.date }}</h5>
@@ -282,8 +298,29 @@
                 {% endfor %}
               </ul>
             </div>
+            {% endunless %}
+            {% endfor %}
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Education</h3>
+            {% for item in site.data.content.education %}
+            <div class="resume-item">
+              <h4>{{ item.name }}</h4>
+              <h5>{{ item.date }}</h5>
+              <p><em>{{ item.institution }}</em></p>
+              <p>{{ item.tag }}</p>
+            </div>
             {% endfor %}
 
+            <h3 class="resume-title">Associative &amp; Standards</h3>
+            {% for item in site.data.content.associative %}
+            <div class="resume-item">
+              <h4>{{ item.name }}</h4>
+              <h5>{{ item.date }}</h5>
+              <p>{{ item.tag }}</p>
+            </div>
+            {% endfor %}
           </div>
         </div>
 
@@ -328,16 +365,16 @@
               {% endif %}
               <div class="col-lg-4 col-md-6 portfolio-item {{construct_count}}">
 
-            <p><a href={{ repo.html_url }}><b>Title:</b> {{repo.name}}</a> </p> 
+            <p><a href={{ repo.html_url }}><b>Title:</b> {{repo.name}}</a> </p>
             <p><b>Description:</b> {{repo.description}}</p>
-            <p><b><i class='bx bxs-tag-alt' ></i>Topics:</b> {{ repo.topics | array_to_sentence_string}}</p> 
+            <p><b><i class='bx bxs-tag-alt' ></i>Topics:</b> {{ repo.topics | array_to_sentence_string}}</p>
             <p> <i class='bx bxs-calendar'></i><b>Last Updated:</b>  {{repo.updated_at | date_to_string}} </p>
         </div>
         {% endif %}
         {% endfor %}
     </section><!-- End Portfolio Section -->
 
-     <!-- ======= Portfolio Section ======= -->
+     <!-- ======= Publications Section ======= -->
      <section id="publications" class="portfolio section-bg">
       <div class="container">
 
@@ -354,50 +391,123 @@
 
       </section><!-- End publications Section -->
 
-    <!-- ======= Services Section ======= -->
+    <!-- ======= What I Do Section ======= -->
     <section id="services" class="services">
       <div class="container">
 
         <div class="section-title">
-          <h2>Services</h2>
-          <p>I now offer a wide range of services to companies in order to get healthcare data reach its full potential for industry and health institutions. </p>
+          <h2>What I Do</h2>
+          <p>I bring a multidisciplinary approach to digital health, combining research, technology, and standards expertise.</p>
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">Data</a></h4>
-            <p class="description">Data Governance, Data Cleaning, Data Pipelines and Data Management</p>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="service-card">
+              <div class="service-card-front">
+                <div class="service-icon"><i class="bi bi-journal-text"></i></div>
+                <h4>Research &amp; Innovation</h4>
+                <span class="service-highlight"><i class="bi bi-bookmark-star"></i> 9+ publications</span>
+                <p>Health data science research, federated learning, NLP, and real-world evidence generation.</p>
+              </div>
+              <ul class="service-tags">
+                <li>Federated Learning</li>
+                <li>NLP</li>
+                <li>Real-World Evidence</li>
+                <li>PhD Research</li>
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="">Interoperability Implementation</a></h4>
-            <p class="description">Focus on specification, development and implementation of interoperability solutions.</p>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card">
+              <div class="service-card-front">
+                <div class="service-icon"><i class="bi bi-globe2"></i></div>
+                <h4>Digital Health Consulting</h4>
+                <span class="service-highlight"><i class="bi bi-geo-alt"></i> 13+ countries</span>
+                <p>Product ownership, system design, and implementation across international health institutions.</p>
+              </div>
+              <ul class="service-tags">
+                <li>Product Owner</li>
+                <li>System Design</li>
+                <li>AI Validation</li>
+                <li>IDMP</li>
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-            <h4 class="title"><a href="">Healthcare Standards Definition </a></h4>
-            <p class="description">Defining data standards for projects</p>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card">
+              <div class="service-card-front">
+                <div class="service-icon"><i class="bi bi-diagram-3"></i></div>
+                <h4>Health Data Interoperability</h4>
+                <span class="service-highlight"><i class="bi bi-check-circle"></i> FHIR &amp; IHE</span>
+                <p>Specification, implementation, and standards development for healthcare data exchange.</p>
+              </div>
+              <ul class="service-tags">
+                <li>HL7 FHIR</li>
+                <li>IHE Profiles</li>
+                <li>FHIR Servers</li>
+                <li>Connectathons</li>
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bi bi-binoculars"></i></div>
-            <h4 class="title"><a href="">Data Science Projects</a></h4>
-            <p class="description">From business understanding, data prep, model development and evaluation, model deployment and monitoring.</p>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card">
+              <div class="service-card-front">
+                <div class="service-icon"><i class="bi bi-award"></i></div>
+                <h4>Teaching &amp; Training</h4>
+                <span class="service-highlight"><i class="bi bi-people"></i> 5 courses</span>
+                <p>University courses and professional training on interoperability, data science, and health standards.</p>
+              </div>
+              <ul class="service-tags">
+                <li>University of Porto</li>
+                <li>Health Informatics</li>
+                <li>Data Science</li>
+                <li>Workshops</li>
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="bi bi-brightness-high"></i></div>
-            <h4 class="title"><a href="">Formation</a></h4>
-            <p class="description">Teaching about interoperability, data science and health data standards</p>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card">
+              <div class="service-card-front">
+                <div class="service-icon"><i class="bi bi-cpu"></i></div>
+                <h4>Product &amp; Tech Leadership</h4>
+                <span class="service-highlight"><i class="bi bi-lightning"></i> Full lifecycle</span>
+                <p>Digital health product management, roadmap definition, DevOps, and deployment.</p>
+              </div>
+              <ul class="service-tags">
+                <li>Product Management</li>
+                <li>DevOps</li>
+                <li>ML Pipelines</li>
+                <li>Deployment</li>
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="">Product Management</a></h4>
-            <p class="description">Digital health product management, roadmap definition, DevOps implementation, specifications and deployment.</p>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-card">
+              <div class="service-card-front">
+                <div class="service-icon"><i class="bi bi-shield-check"></i></div>
+                <h4>Standards Development</h4>
+                <span class="service-highlight"><i class="bi bi-award"></i> 3 organizations</span>
+                <p>Active contributor shaping healthcare interoperability standards internationally.</p>
+              </div>
+              <ul class="service-tags">
+                <li>HL7 Portugal</li>
+                <li>IHE Pharmacy</li>
+                <li>E-mais / EFMI</li>
+                <li>Profiles</li>
+              </ul>
+            </div>
           </div>
+
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section><!-- End What I Do Section -->
 
   </main><!-- End #main -->
 

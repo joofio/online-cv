@@ -1,9 +1,9 @@
 {
-  "about": "IT Pharmacist with over 12 years of experience in health information technology. Expertise in data analysis, data modelling and data exchange. Interoperability expert with several implementations and different standards. Focused on improving healthcare using data-based decisions. PharmD, Msc, PhD",
-  "about_header": "Data Management &amp; Science. ",
-  "about_headline": "Creating Data solutions for healthcare. ",
-  "about_description": "Healthcare needs to be safer and more efficient. With a combined background in pharmaceutical Sciences and Health Informatics, my ambition is to use technology to improve patient safety, to increase treatment efficacy and to improve care efficiency.",
-  "facts_description": "During my professional and academic activities, I take pride in some numbers that I have achieved",
+  "about": "Digital health leader with over 12 years of experience spanning research, consulting, teaching, and technology leadership. Expertise in health data interoperability, data science, and digital health product development. PhD in Health Data Science with 9+ publications and implementations across 13 countries.",
+  "about_header": "Digital Health &amp; Data Science",
+  "about_headline": "Bridging pharmacy, data science, and digital health leadership.",
+  "about_description": "Healthcare needs to be safer and more efficient. With a combined background in Pharmaceutical Sciences and Health Informatics, my ambition is to use technology to improve patient safety, to increase treatment efficacy and to improve care efficiency. As a researcher, consultant, and educator, I bring a multidisciplinary perspective to every challenge.",
+  "facts_description": "Key numbers from my professional and academic journey.",
   "skills": [
     {
       "name": "Machine Learning",
@@ -30,8 +30,8 @@
       "perc": 95
     }
   ],
-  "resume_description": "Some of my personal, academic, professional and associative history.",
-  "resume_summary": "IT Pharmacist with over 10 years of experience in health information technology. Expertise in data analysis, data modelling and data exchange. Interoperability expert with several implementations and different standards. Focused on improving healthcare using data-based decisions.",
+  "resume_description": "An overview of my academic, professional, and associative journey.",
+  "resume_summary": "Digital health leader with over 12 years of experience in health information technology. Expertise in data analysis, data modelling, interoperability, and digital health product development. Focused on improving healthcare through data-driven decisions and standards adoption.",
   "education": [
     {
       "name": "PhD in Health Data Science",
@@ -90,7 +90,16 @@
       ]
     },
     {
-      "position": "Interoperability and machine learning",
+      "position": "Assistant Professor",
+      "date": "2019 - Present",
+      "location": "Faculty of Medicine Of University Porto, Porto",
+      "description": [
+        "Lecturing classes about interoperability, data standards, Health information systems and health data science",
+        "Creating infrastructure for practical classes support"
+      ]
+    },
+    {
+      "position": "Interoperability and Machine Learning Engineer",
       "date": "2018 - 2021",
       "location": "HealthySystems, Porto",
       "description": [
@@ -101,21 +110,13 @@
       ]
     },
     {
-      "position": "Invited Assistant",
-      "date": "2019 - Present",
-      "location": "Faculty of Medicine Of University Porto, Porto",
-      "description": [
-        "Lecturing classes about interoperability, data standards, Health information systems and health data science",
-        "Creating infrastructure for practical classes support"      ]
-    },
- 
-    {
       "position": "Researcher",
       "date": "2016 - Present",
       "location": "NanoSTIMA, Porto",
       "description": [
         "Researching superior tools to support causality assessment in the pharmacovigilance centres. Provide faster, better and more efficiently drug information to the population.",
-        "Currently developing evaluation methods for biomedical systems and natural language processing of biomedical papers."      ]
+        "Currently developing evaluation methods for biomedical systems and natural language processing of biomedical papers."
+      ]
     },
     {
       "position": "Integration Analyst",
@@ -138,6 +139,44 @@
         "Functional analysis for several features for 3+ years",
         "Implementation consultant in over 5 projects"
       ]
+    }
+  ],
+  "roles": [
+    {
+      "icon": "bi bi-journal-text",
+      "title": "Researcher",
+      "description": "PhD in Health Data Science, 9+ publications, NanoSTIMA research group",
+      "link": "#resume"
+    },
+    {
+      "icon": "bi bi-globe2",
+      "title": "Consultant",
+      "description": "Product Owner, FHIR/IHE expert, implementations across 13+ countries",
+      "link": "#resume"
+    },
+    {
+      "icon": "bi bi-easel",
+      "title": "Assistant Professor",
+      "description": "Faculty of Medicine, University of Porto — 5 courses taught",
+      "link": "#resume"
+    },
+    {
+      "icon": "bi bi-cpu",
+      "title": "Tech CEO",
+      "description": "Leading digital health technology ventures",
+      "link": "#resume"
+    },
+    {
+      "icon": "bi bi-heart-fill",
+      "title": "Digital Health Chair",
+      "description": "Chairing digital health initiatives and organizations",
+      "link": "#resume"
+    },
+    {
+      "icon": "bi bi-diagram-3",
+      "title": "Standards Expert",
+      "description": "HL7 Portugal, IHE Pharmacy, E-mais — shaping interoperability standards",
+      "link": "#resume"
     }
   ]
 }

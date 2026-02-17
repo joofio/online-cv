@@ -10,21 +10,22 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #272829;
+  color: #2d3436;
+  line-height: 1.7;
 }
 
 a {
-  color: #149ddd;
+  color: #0d7377;
   text-decoration: none;
 }
 
 a:hover {
-  color: #37b3ed;
+  color: #0a5c5f;
   text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", "DM Sans", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -37,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #149ddd;
+  background: #0d7377;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -51,7 +52,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .back-to-top:hover {
-  background: #2eafec;
+  background: #d4a853;
   color: #fff;
 }
 
@@ -71,9 +72,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 300px;
   transition: all ease-in-out 0.5s;
   z-index: 9997;
-  transition: all 0.5s;
   padding: 0 15px;
-  background: #040b14;
+  background: linear-gradient(180deg, #0a1628 0%, #040b14 100%);
   overflow-y: auto;
 }
 
@@ -91,12 +91,23 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   -moz-text-align-last: center;
   text-align-last: center;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", "Poppins", sans-serif;
 }
 
 #header .profile h1 a, #header .profile h1 a:hover {
   color: #fff;
   text-decoration: none;
+}
+
+#header .profile .profile-subtitle {
+  text-align: center;
+  color: #d4a853;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 6px;
+  margin-bottom: 0;
+  font-family: "Inter", sans-serif;
 }
 
 #header .profile .social-links a {
@@ -106,16 +117,16 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   line-height: 1;
   padding: 8px 0;
-  margin-right: 4px;
+  margin-right: 6px;
   border-radius: 50%;
   text-align: center;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   transition: 0.3s;
 }
 
 #header .profile .social-links a:hover {
-  background: #149ddd;
+  background: #0d7377;
   color: #fff;
   text-decoration: none;
 }
@@ -136,7 +147,6 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-/* Desktop Navigation */
 .nav-menu {
   padding: 30px 0 0 0;
 }
@@ -174,7 +184,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover i, .nav-menu .active i, .nav-menu .active:focus i, .nav-menu li:hover > a i {
-  color: #149ddd;
+  color: #0d7377;
 }
 
 /* Mobile Navigation */
@@ -187,7 +197,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 24px;
   transition: all 0.4s;
   outline: none !important;
-  background-color: #149ddd;
+  background-color: #0d7377;
   color: #fff;
   width: 40px;
   height: 40px;
@@ -244,16 +254,25 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero p {
   color: #fff;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   font-size: 26px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", "Poppins", sans-serif;
 }
 
 #hero p span {
   color: #fff;
   padding-bottom: 4px;
   letter-spacing: 1px;
-  border-bottom: 3px solid #149ddd;
+  border-bottom: 3px solid #0d7377;
+}
+
+#hero .hero-tagline {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  font-style: italic;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
 }
 
 @media (min-width: 1024px) {
@@ -271,6 +290,9 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
+  }
+  #hero .hero-tagline {
+    font-size: 14px;
   }
 }
 
@@ -292,11 +314,12 @@ section {
 
 .section-title h2 {
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 300;
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #173b6c;
+  color: #0a1628;
+  letter-spacing: -0.5px;
 }
 
 .section-title h2::after {
@@ -305,7 +328,7 @@ section {
   display: block;
   width: 50px;
   height: 3px;
-  background: #149ddd;
+  background: #0d7377;
   bottom: 0;
   left: 0;
 }
@@ -320,7 +343,7 @@ section {
 .about .content h3 {
   font-weight: 700;
   font-size: 26px;
-  color: #173b6c;
+  color: #0a1628;
 }
 
 .about .content ul {
@@ -341,12 +364,71 @@ section {
 .about .content ul i {
   font-size: 16px;
   margin-right: 5px;
-  color: #149ddd;
+  color: #0d7377;
   line-height: 0;
 }
 
 .about .content p:last-child {
   margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Roles at a Glance
+--------------------------------------------------------------*/
+.roles .role-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px 24px;
+  text-align: center;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(13, 115, 119, 0.08);
+}
+
+.roles .role-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.roles .role-card .role-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0d7377, #0a5c5f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+}
+
+.roles .role-card .role-icon i {
+  font-size: 28px;
+  color: #fff;
+}
+
+.roles .role-card h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #0a1628;
+}
+
+.roles .role-card p {
+  font-size: 14px;
+  color: #636e72;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.roles .role-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.roles .role-card-link:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
 /*--------------------------------------------------------------
@@ -364,7 +446,7 @@ section {
 .facts .count-box i {
   display: block;
   font-size: 44px;
-  color: #149ddd;
+  color: #0d7377;
   float: left;
   line-height: 0;
 }
@@ -374,34 +456,34 @@ section {
   line-height: 40px;
   display: block;
   font-weight: 700;
-  color: #050d18;
+  color: #0a1628;
   margin-left: 60px;
 }
 
 .facts .count-box p {
   padding: 15px 0 0 0;
   margin: 0 0 0 60px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
-  color: #122f57;
+  color: #2d3436;
 }
 
 .facts .count-box a {
   font-weight: 600;
   display: block;
   margin-top: 20px;
-  color: #122f57;
+  color: #0a1628;
   font-size: 15px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   transition: ease-in-out 0.3s;
 }
 
 .facts .count-box a:hover {
-  color: #1f5297;
+  color: #0d7377;
 }
 
 /*--------------------------------------------------------------
-# Akills
+# Skills
 --------------------------------------------------------------*/
 .skills .progress {
   height: 60px;
@@ -416,8 +498,8 @@ section {
   text-transform: uppercase;
   display: block;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
-  color: #050d18;
+  font-family: "Inter", sans-serif;
+  color: #0a1628;
 }
 
 .skills .progress .skill .val {
@@ -428,13 +510,15 @@ section {
 .skills .progress-bar-wrap {
   background: #dce8f8;
   height: 10px;
+  border-radius: 5px;
 }
 
 .skills .progress-bar {
   width: 1px;
   height: 10px;
   transition: .9s;
-  background-color: #149ddd;
+  background: linear-gradient(90deg, #0d7377, #0a9ea3);
+  border-radius: 5px;
 }
 
 /*--------------------------------------------------------------
@@ -445,13 +529,13 @@ section {
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: #050d18;
+  color: #0a1628;
 }
 
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
-  border-left: 2px solid #1f5297;
+  border-left: 2px solid #0d7377;
   position: relative;
 }
 
@@ -460,18 +544,20 @@ section {
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  color: #050d18;
+  font-family: "Inter", sans-serif;
+  color: #0a1628;
   margin-bottom: 10px;
 }
 
 .resume .resume-item h5 {
   font-size: 16px;
-  background: #e4edf9;
+  background: #e8f4f5;
   padding: 5px 15px;
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
+  color: #0d7377;
+  border-radius: 4px;
 }
 
 .resume .resume-item ul {
@@ -495,7 +581,7 @@ section {
   left: -9px;
   top: 0;
   background: #fff;
-  border: 2px solid #1f5297;
+  border: 2px solid #0d7377;
 }
 
 /*--------------------------------------------------------------
@@ -529,7 +615,7 @@ section {
 }
 
 .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
-  color: #149ddd;
+  color: #0d7377;
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -572,17 +658,17 @@ section {
   color: #fff;
   font-size: 28px;
   text-align: center;
-  background: rgba(20, 157, 221, 0.75);
+  background: rgba(13, 115, 119, 0.75);
   transition: 0.3s;
   width: 50%;
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
-  background: rgba(20, 157, 221, 0.95);
+  background: rgba(13, 115, 119, 0.95);
 }
 
 .portfolio .portfolio-wrap .portfolio-links a + a {
-  border-left: 1px solid #37b3ed;
+  border-left: 1px solid #0a9ea3;
 }
 
 .portfolio .portfolio-wrap:hover::before {
@@ -619,11 +705,11 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #149ddd;
+  border: 1px solid #0d7377;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #149ddd;
+  background-color: #0d7377;
 }
 
 .portfolio-details .portfolio-info {
@@ -664,58 +750,127 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Services
+# Services / What I Do
 --------------------------------------------------------------*/
-.services .icon-box {
-  margin-bottom: 20px;
+.services .service-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 28px 24px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.services .icon {
-  float: left;
+.services .service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0d7377, #d4a853);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.services .service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+}
+
+.services .service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.services .service-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(13, 115, 119, 0.1), rgba(13, 115, 119, 0.05));
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 54px;
-  height: 54px;
-  background: #149ddd;
-  border-radius: 50%;
-  transition: 0.5s;
-  border: 1px solid #149ddd;
+  margin-bottom: 18px;
+  transition: background 0.3s ease;
 }
 
-.services .icon i {
+.services .service-card:hover .service-icon {
+  background: linear-gradient(135deg, #0d7377, #0a5c5f);
+}
+
+.services .service-icon i {
+  font-size: 26px;
+  color: #0d7377;
+  transition: color 0.3s ease;
+}
+
+.services .service-card:hover .service-icon i {
   color: #fff;
-  font-size: 24px;
-  line-height: 0;
 }
 
-.services .icon-box:hover .icon {
-  background: #fff;
+.services .service-card h4 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #0a1628;
+  margin-bottom: 8px;
+  font-family: "Inter", sans-serif;
 }
 
-.services .icon-box:hover .icon i {
-  color: #149ddd;
+.services .service-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #d4a853;
+  background: rgba(212, 168, 83, 0.1);
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.3px;
 }
 
-.services .title {
-  margin-left: 80px;
-  font-weight: 700;
-  margin-bottom: 15px;
-  font-size: 18px;
+.services .service-highlight i {
+  font-size: 12px;
 }
 
-.services .title a {
-  color: #343a40;
-}
-
-.services .title a:hover {
-  color: #149ddd;
-}
-
-.services .description {
-  margin-left: 80px;
-  line-height: 24px;
+.services .service-card-front p {
   font-size: 14px;
+  color: #636e72;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.services .service-tags {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 14px;
+}
+
+.services .service-tags li {
+  font-size: 11px;
+  font-weight: 500;
+  color: #0d7377;
+  background: rgba(13, 115, 119, 0.07);
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-family: "Inter", sans-serif;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.services .service-tags li:hover {
+  background: #0d7377;
+  color: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -797,11 +952,11 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #149ddd;
+  border: 1px solid #0d7377;
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #149ddd;
+  background-color: #0d7377;
 }
 
 /*--------------------------------------------------------------
@@ -820,11 +975,11 @@ section {
 
 .contact .info i {
   font-size: 20px;
-  color: #149ddd;
+  color: #0d7377;
   float: left;
   width: 44px;
   height: 44px;
-  background: #dff3fc;
+  background: #e0f2f3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -837,14 +992,14 @@ section {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #050d18;
+  color: #0a1628;
 }
 
 .contact .info p {
   padding: 0 0 10px 60px;
   margin-bottom: 20px;
   font-size: 14px;
-  color: #173b6c;
+  color: #2d3436;
 }
 
 .contact .info .email p {
@@ -871,12 +1026,12 @@ section {
 }
 
 .contact .info .social-links a:hover {
-  background: #149ddd;
+  background: #0d7377;
   color: #fff;
 }
 
 .contact .info .email:hover i, .contact .info .address:hover i, .contact .info .phone:hover i {
-  background: #149ddd;
+  background: #0d7377;
   color: #fff;
 }
 
@@ -937,7 +1092,6 @@ section {
   margin: 0 10px -6px 0;
   border: 3px solid #18d26e;
   border-top-color: #eee;
-  -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
 }
 
@@ -964,7 +1118,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"] {
-  background: #149ddd;
+  background: #0d7377;
   border: 0;
   padding: 10px 24px;
   color: #fff;
@@ -973,16 +1127,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"]:hover {
-  background: #37b3ed;
-}
-
-@-webkit-keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  background: #0a5c5f;
 }
 
 @keyframes animate-loading {
@@ -1071,4 +1216,219 @@ section {
     width: auto;
     padding-right: 20px 15px;
   }
+}
+
+/*--------------------------------------------------------------
+# Navigation — Blog separator & external link
+--------------------------------------------------------------*/
+.nav-menu .nav-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 8px 15px 8px 15px;
+  height: 0;
+  padding: 0 !important;
+}
+
+.nav-menu .nav-link-blog {
+  position: relative;
+}
+
+.nav-menu .nav-link-blog .nav-external-icon {
+  font-size: 12px !important;
+  padding-right: 0;
+  padding-left: 6px;
+  opacity: 0.5;
+}
+
+/* On blog page, highlight blog link & dim portfolio links */
+.blog-page .nav-menu .nav-link.scrollto {
+  opacity: 0.5;
+}
+
+.blog-page .nav-menu .nav-link.scrollto:hover {
+  opacity: 1;
+}
+
+.blog-page .nav-menu .nav-link-blog {
+  color: #fff;
+}
+
+.blog-page .nav-menu .nav-link-blog i {
+  color: #0d7377;
+}
+
+/*--------------------------------------------------------------
+# Blog Page
+--------------------------------------------------------------*/
+.blog-section {
+  padding-top: 40px;
+}
+
+.blog-header {
+  margin-bottom: 10px;
+}
+
+.blog-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #0d7377;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  transition: color 0.3s;
+}
+
+.blog-back-link:hover {
+  color: #0a5c5f;
+}
+
+.blog-post-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-post-content {
+  padding: 24px;
+}
+
+.blog-post-date {
+  font-size: 13px;
+  color: #636e72;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.blog-post-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.blog-post-content h3 a {
+  color: #0a1628;
+  transition: color 0.3s;
+}
+
+.blog-post-content h3 a:hover {
+  color: #0d7377;
+}
+
+.blog-post-excerpt {
+  font-size: 14px;
+  color: #636e72;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.blog-read-more {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0d7377;
+  font-family: "Inter", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.3s;
+}
+
+.blog-read-more:hover {
+  gap: 8px;
+  color: #0a5c5f;
+}
+
+/*--------------------------------------------------------------
+# Resume — Current Roles group
+--------------------------------------------------------------*/
+.resume-group {
+  margin-bottom: 40px;
+}
+
+.resume-group-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0a1628;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #0d7377;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-group-title i {
+  color: #d4a853;
+  font-size: 22px;
+}
+
+.resume-role-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-left: 4px solid #0d7377;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-role-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.resume-role-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
+  color: #0a1628;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.resume-role-card h5 {
+  font-size: 14px;
+  background: #e8f4f5;
+  padding: 4px 12px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #0d7377;
+  border-radius: 4px;
+}
+
+.resume-role-card .resume-role-location {
+  font-size: 13px;
+  color: #636e72;
+  margin-bottom: 10px;
+}
+
+.resume-role-card ul {
+  padding-left: 18px;
+  margin-bottom: 0;
+}
+
+.resume-role-card ul li {
+  padding-bottom: 6px;
+  font-size: 14px;
+  color: #2d3436;
 }
