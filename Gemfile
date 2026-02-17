@@ -10,13 +10,16 @@ source "https://rubygems.org"
 #gem "liquid", "~> 4.0.4"
 gem "faraday-retry"
 gem 'nokogiri', '~> 1.13'
+gem 'jekyll', '~> 4.0'
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "github-pages"
   gem 'jekyll-feed'
-  gem 'jekyll-scholar'
-  gem "jekyll-include-cache"
+  gem 'jekyll-scholar', '~> 7.0'
+  gem 'jekyll-include-cache'
+  gem 'jekyll-relative-links'
+  gem 'jekyll-seo-tag'
+  gem 'jekyll-gist'
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
