@@ -13,4 +13,5 @@ vendor/
 
 # Environment variables (contains secrets)
 .env
-.env.local
+.env.local.bundle
+vendor/

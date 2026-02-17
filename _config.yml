@@ -7,6 +7,7 @@ plugins:
   - jekyll/scholar
   - jekyll-seo-tag
   - jekyll-include-cache
+  - jekyll-github-metadata
 
 relative_links:
   enabled: true
